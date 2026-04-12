@@ -1,0 +1,97 @@
+<mxfile host="65bd71144e">
+    <diagram id="architecturediagram" name="Architecture">
+        <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="800" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                
+                <mxCell id="cli" value="CLI (cli.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="40" width="120" height="60" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="main" value="Main API (main.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge1" parent="1" source="cli" target="main" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="config" value="Config (config.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#b85450;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="140" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_config" parent="1" source="config" target="main" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="repo" value="Repository (repository.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="240" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge2" parent="1" source="main" target="repo" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="vcs" value="VCS / Clone (vcs.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="200" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_vcs" parent="1" source="repo" target="vcs" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                
+                <mxCell id="zipfile" value="Zip Extracts (zipfile.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="280" width="140" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_zip" parent="1" source="repo" target="zipfile" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="prompt" value="Prompt (prompt.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge3" parent="1" source="main" target="prompt" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="replay" value="Replay (replay.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="240" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_replay" parent="1" source="replay" target="prompt" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="generate" value="Generate (generate.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="360" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge4" parent="1" source="prompt" target="generate" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge5" parent="1" source="repo" target="generate" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="env" value="Jinja Env &amp; Exts&lt;br&gt;(environment.py, extensions.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="150" y="360" width="180" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_env" parent="1" source="generate" target="env" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="hooks" value="Hooks (hooks.py)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#d79b00;" parent="1" vertex="1">
+                    <mxGeometry x="600" y="360" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge_hooks" parent="1" source="generate" target="hooks" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+
+                <mxCell id="output" value="Output Directory" style="shape=folder;fontStyle=1;spacingTop=10;tabWidth=40;tabHeight=14;tabPosition=left;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="400" y="460" width="120" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="edge6" style="" parent="1" source="generate" target="output" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="460" y="470" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
