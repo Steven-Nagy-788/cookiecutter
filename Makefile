@@ -75,6 +75,15 @@ coverage: ## Check code coverage quickly with the default Python
 	@tox -e py310
 	@$(BROWSER) htmlcov/index.html
 
+.PHONY: fuzz-cli
+fuzz-cli: ## Run grammar-based fuzzing on CLI parsing
+	@echo "+ $@"
+	@CC_FUZZ_MAX_EXAMPLES=$${CC_FUZZ_MAX_EXAMPLES:-200} \
+	CC_FUZZ_DEADLINE_MS=$${CC_FUZZ_DEADLINE_MS:-300} \
+	HYPOTHESIS_SEED=$${HYPOTHESIS_SEED:-} \
+	/home/seif/VV/cookiecutter/.venv/bin/python -m pytest \
+		tests/test_cli_grammar_fuzz.py -q --hypothesis-show-statistics
+
 .PHONY: docs
 docs: ## Generate Sphinx HTML documentation, including API docs
 	@echo "+ $@"

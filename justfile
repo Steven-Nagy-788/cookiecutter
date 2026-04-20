@@ -60,3 +60,12 @@ tag:
 coverage:
     uv run --python=3.13 --isolated --group test -- \
         pytest --cov-report=html --cov-report=xml --cov-branch --cov-fail-under=100
+
+# Run grammar-based fuzzing against CLI argument handling
+fuzz-cli max_examples="200" deadline_ms="300" seed="":
+    env \
+        CC_FUZZ_MAX_EXAMPLES={{max_examples}} \
+        CC_FUZZ_DEADLINE_MS={{deadline_ms}} \
+        HYPOTHESIS_SEED={{seed}} \
+        /home/seif/VV/cookiecutter/.venv/bin/python -m pytest \
+            tests/test_cli_grammar_fuzz.py -q --hypothesis-show-statistics

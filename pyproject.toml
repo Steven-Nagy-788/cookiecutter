@@ -76,6 +76,8 @@ test = [
     "pytest-cov",
     "pytest-mock",
     "freezegun",
+    "hypothesis",
+    "lark",
 ]
 
 lint = [
