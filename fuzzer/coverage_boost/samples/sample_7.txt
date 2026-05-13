@@ -1,0 +1,1 @@
+tests/fake-repo-replay/ --replay --replay-file tests/test-replay/valid_replay.json -v --keep-project-on-failure --config-file tests/test-config/valid-partial-config.yaml

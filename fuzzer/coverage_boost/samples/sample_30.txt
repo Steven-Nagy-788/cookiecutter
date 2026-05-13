@@ -1,0 +1,1 @@
+tests/fake-repo-dict/ --no-input

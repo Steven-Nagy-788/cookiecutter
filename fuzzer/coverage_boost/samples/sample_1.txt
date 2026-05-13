@@ -1,0 +1,1 @@
+tests/fake-nested-templates/ --no-input project_name=Fuzz_Project --keep-project-on-failure
