@@ -1,0 +1,13 @@
+{
+  "project_name": "Example Project",
+  "repo_name": "{{ cookiecutter.project_name|lower }}",
+  "feature_flags": {
+    "docs": false,
+    "ci": true
+  },
+  "owner": {
+    "team": "platform",
+    "email": "team@example.com"
+  },
+  "_new_lines": "\n"
+}

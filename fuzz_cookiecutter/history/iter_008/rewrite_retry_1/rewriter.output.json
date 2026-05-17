@@ -1,0 +1,21 @@
+{
+  "rationale": "Add remote URL source, nested/context list values, raw strings, path expansions, and malformed binary to hit uncovered code paths",
+  "updates": [
+    {
+      "rule": "template_source",
+      "replacement": "template_source\n    : '\"local\"'\n    | URL\n    ;\n\nURL\n    : '\"' ('http' 's'? '://' | 'git+' 'https' '://' | 'hg+' 'https' '://') (~'\"')* '\"'\n    ;"
+    },
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' extra_context_pair (',' extra_context_pair)* '}'\n    ;\n\nextra_context_pair\n    : STRING ':' extra_context_value\n    ;\n\nextra_context_value\n    : STRING                     // raw string, e.g., \"yes\", \"no\"\n    | json_bool\n    | list_literal\n    | object_literal\n    ;\n\nlist_literal\n    : '[' (STRING (',' STRING)*)? ']'\n    ;\n\nobject_literal\n    : '{' (STRING ':' extra_context_value (',' STRING ':' extra_context_value)*)? '}'\n    ;\n\nSTRING\n    : '\"' (~'\"')* '\"'\n    ;"
+    },
+    {
+      "rule": "path_expr",
+      "replacement": "path_expr\n    : '\"README.md\"'\n    | '\"docs/guide.md\"'\n    | '\"rendered/config.yml\"'\n    | '\"{{cookiecutter.repo_name}}/README.md\"'\n    | '\"{{cookiecutter.repo_name}}/pyproject.toml\"'\n    | '\"{{cookiecutter.repo_name}}/src/{{cookiecutter.repo_name}}/__init__.py\"'\n    | '\"{{cookiecutter.repo_name}}/templates/report.txt\"'\n    | '\"~/' (~'\"')* '\"'\n    | '\"${' (~'}')* '}\"'\n    ;"
+    },
+    {
+      "rule": "binary_contents",
+      "replacement": "binary_contents\n    : '\"AAECAwQ=\"'\n    | '\"c29tZS1iaW5hcnktYnl0ZXM=\"'\n    | '\"@@@invalid-base64@@@\"' // malformed to trigger decode error\n    ;"
+    }
+  ]
+}

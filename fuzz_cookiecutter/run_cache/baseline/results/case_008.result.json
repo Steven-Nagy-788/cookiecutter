@@ -1,0 +1,19 @@
+{
+  "case_id": "case_008",
+  "details": {
+    "exception_repr": "UndefinedVariableInTemplate(\"Unable to create file 'docs\\\\guide.md'\", UndefinedError(\"'collections.OrderedDict object' has no attribute 'missing_value'\"), OrderedDict({'cookiecutter': OrderedDict({'project_name': 'Overwritten Project', 'repo_name': 'overwritten project', 'use_docker': False, 'license': 'MIT', 'database': {'engine': 'sqlite', 'port': '5432'}, '_copy_without_render': ['{{cookiecutter.repo_name}}/assets/*'], '_new_lines': '\\n', '_template': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_008\\\\template_repo\\\\nested_service', '_output_dir': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_008\\\\output', '_repo_dir': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_008\\\\template_repo\\\\nested_service', '_checkout': None}), '_cookiecutter': {'project_name': 'Overwritten Project', 'repo_name': '{{ cookiecutter.project_name|lower }}', 'use_docker': False, 'license': ['MIT', 'GPL', 'Apache'], 'database': OrderedDict({'engine': 'sqlite', 'port': '5432'})}}))"
+  },
+  "duration_ms": 134,
+  "exception_message": "Unable to create file 'docs\\guide.md'. Error message: 'collections.OrderedDict object' has no attribute 'missing_value'. Context: OrderedDict({'cookiecutter': OrderedDict({'project_name': 'Overwritten Project', 'repo_name': 'overwritten project', 'use_docker': False, 'license': 'MIT', 'database': {'engine': 'sqlite', 'port': '5432'}, '_copy_without_render': ['{{cookiecutter.repo_name}}/assets/*'], '_new_lines': '\\n', '_template': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_008\\\\template_repo\\\\nested_service', '_output_dir': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_008\\\\output', '_repo_dir': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_008\\\\template_repo\\\\nested_service', '_checkout': None}), '_cookiecutter': {'project_name': 'Overwritten Project', 'repo_name': '{{ cookiecutter.project_name|lower }}', 'use_docker': False, 'license': ['MIT', 'GPL', 'Apache'], 'database': OrderedDict({'engine': 'sqlite', 'port': '5432'})}})",
+  "exception_type": "UndefinedVariableInTemplate",
+  "execution_mode": "api",
+  "exit_code": 1,
+  "file_count_created": 1,
+  "generated_project_path": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_008\\output\\Replay Project",
+  "hook_phase_reached": "render_file",
+  "manifest_path": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\cases\\case_8.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": ""
+}

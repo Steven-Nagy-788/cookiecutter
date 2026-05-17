@@ -1,0 +1,29 @@
+{
+  "rationale": "Add grammar alternatives to cover under‑explored scenarios such as remote template sources, nested extra_context, varied newlines, complex copy_without_render patterns, partial hooks, and partial replay payloads.",
+  "updates": [
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' \"project_name\" ':' '\"Overwritten Project\"' '}'\n    | '{' \"use_docker\" ':' '\"true\"' '}'\n    // nested dictionary to trigger generate.py nested variable handling\n    | '{' \"nested\" ':' '{' \"inner\" ':' '\"value\"' '}' '}'\n    // list value to test list merging logic\n    | '{' \"license\" ':' '[' '\"MIT\"' ',' '\"GPL\"' ']' '}'\n    ;"
+    },
+    {
+      "rule": "template_source",
+      "replacement": "template_source\n    : '\"local\"'\n    // remote zip archive URL\n    | '\"https://example.com/template.zip\"'\n    // VCS URL (git or hg)\n    | '\"git+https://github.com/user/repo.git\"'\n    | '\"hg+https://hg.example.com/user/repo\"'\n    ;"
+    },
+    {
+      "rule": "newline_value",
+      "replacement": "newline_value\n    : '\"\\\\n\"'\n    | '\"\\\\r\\\\n\"'\n    // additional carriage‑return only line ending\n    | '\"\\\\r\"'\n    | 'null'\n    ;"
+    },
+    {
+      "rule": "copy_without_render_array",
+      "replacement": "copy_without_render_array\n    : '[]'\n    | '[' '\"{{cookiecutter.repo_name}}/assets/*\"' ']'\n    | '[' '\"{{cookiecutter.repo_name}}/rendered/*.yml\"' ']'\n    // multiple glob patterns, mixing binary and text paths\n    | '[' '\"{{cookiecutter.repo_name}}/assets/*\"' ',' '\"{{cookiecutter.repo_name}}/templates/**/*.txt\"' ']'\n    ;"
+    },
+    {
+      "rule": "hooks_object",
+      "replacement": "hooks_object\n    : '{'\n      '\"pre_prompt\"' ':' hook_script ','\n      '\"pre_gen_project\"' ':' hook_script ','\n      '\"post_gen_project\"' ':' hook_script\n      '}'\n    // partial hooks: some null, some valid scripts\n    | '{'\n      '\"pre_prompt\"' ':' 'null' ','\n      '\"pre_gen_project\"' ':' hook_script ','\n      '\"post_gen_project\"' ':' 'null'\n      '}'\n    ;"
+    },
+    {
+      "rule": "replay_value",
+      "replacement": "replay_value\n    : 'null'\n    | '{' '\"cookiecutter\"' ':' '{'\n         '\"project_name\"' ':' '\"Replay Project\"' ','\n         '\"repo_name\"' ':' '\"replay_project\"' ','\n         '\"use_docker\"' ':' 'true'\n       '}' '}'\n    // partial replay payload with only a subset of keys\n    | '{' '\"cookiecutter\"' ':' '{'\n         '\"project_name\"' ':' '\"Partial Replay\"'\n       '}' '}'\n    ;"
+    }
+  ]
+}

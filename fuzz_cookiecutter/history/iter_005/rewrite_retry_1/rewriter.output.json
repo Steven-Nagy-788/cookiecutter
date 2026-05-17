@@ -1,0 +1,29 @@
+{
+  "rationale": "Add variability to enable uncovered generation, prompt, zipfile, VCS, and hook paths",
+  "updates": [
+    {
+      "rule": "template_source",
+      "replacement": "template_source\n    : '\"local\"'\n    | URL_LITERAL\n    ;\n\nURL_LITERAL\n    : '\"https://example.com/template.zip\"'\n    | '\"git+https://github.com/user/repo.git\"'\n    ;"
+    },
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' \"project_name\" ':' STRING_LITERAL '}'\n    | '{' \"use_docker\" ':' STRING_LITERAL '}'\n    | '{' \"license\" ':' LIST_LITERAL '}'\n    | '{' \"repo_name\" ':' STRING_LITERAL ',' \"project_name\" ':' STRING_LITERAL '}'\n    ;\n\nSTRING_LITERAL\n    : '\"Overwritten Project\"'\n    | '\"true\"'\n    | '\"false\"'\n    | '\"custom_repo\"'\n    ;\n\nLIST_LITERAL\n    : '[' STRING_LITERAL (',' STRING_LITERAL)* ']'\n    ;"
+    },
+    {
+      "rule": "invocation_object",
+      "replacement": "invocation_object\n    : '{'\n      '\"no_input\"' ':' 'true' ','\n      '\"extra_context\"' ':' extra_context_object ','\n      '\"replay\"' ':' 'null' ','\n      '\"overwrite_if_exists\"' ':' json_bool ','\n      '\"skip_if_file_exists\"' ':' json_bool ','\n      '\"accept_hooks\"' ':' json_bool ','\n      '\"keep_project_on_failure\"' ':' json_bool ','\n      '\"output_dir_state\"' ':' output_dir_state\n      '}'\n    | '{'\n      '\"no_input\"' ':' 'false' ','\n      '\"extra_context\"' ':' extra_context_object ','\n      '\"replay\"' ':' replay_value ','\n      '\"overwrite_if_exists\"' ':' json_bool ','\n      '\"skip_if_file_exists\"' ':' json_bool ','\n      '\"accept_hooks\"' ':' json_bool ','\n      '\"keep_project_on_failure\"' ':' json_bool ','\n      '\"output_dir_state\"' ':' output_dir_state ','\n      '\"_in_dict_var\"' ':' json_bool\n      '}'\n    ;"
+    },
+    {
+      "rule": "prompts_object",
+      "replacement": "prompts_object\n    : '{}'\n    | '{'\n      '\"project_name\"' ':' '\"Project name?\"' ','\n      '\"use_docker\"' ':' '\"Use Docker?\"' ','\n      '\"license\"' ':' '\"Choose a license\"' ','\n      '\"database\"' ':' '\"Database settings\"'\n      '}'\n    | '{'\n      '\"project_name\"' ':' '\"Name of the generated package\"' ','\n      '\"owner\"' ':' '\"Owner metadata\"' ','\n      '\"use_docker\"' ':' '{' '\"type\"' ':' '\"bool\"' '}'\n      '}'\n    ;"
+    },
+    {
+      "rule": "hook_script",
+      "replacement": "hook_script\n    : 'null'\n    | '\"from pathlib import Path\\\\nPath(\\'HOOK_OK\\').write_text(\\'ok\\', encoding=\\'utf-8\\')\\\\n\"'\n    | '\"raise SystemExit(1)\\\\n\"'\n    | '\"print(\\'hook succeeded\\')\\\\n\"'\n    ;"
+    },
+    {
+      "rule": "nested_templates_value",
+      "replacement": "nested_templates_value\n    : 'null'\n    | '[' nested_template_entry (',' nested_template_entry){1,3} ']'\n    ;"
+    }
+  ]
+}

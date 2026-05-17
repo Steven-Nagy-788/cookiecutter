@@ -1,0 +1,103 @@
+{
+  "analysis": "The current grammar exercises many branches but still misses large blocks in generate.py (list handling and deep dict overwrites), prompt.py (choice parsing), zipfile.py (URL handling), vcs.py (repo URL parsing) and config.py (path expansion). Most failures are NonTemplatedInputDirException from generate_files, indicating the template source is never treated as a real directory. Hook failures are only exercised via the existing hook_script alternatives. The harness currently only toggles mode, no_input, and replay, leaving many combinations of json_bool flags, extra_context, copy_without_render, new_lines, nested templates, and hook scripts unexplored.",
+  "line_target_hints": [
+    {
+      "code_signal": "Assigning a new value to a variable inside a deep dictionary when in_dictionary_variable is true",
+      "delivery": "grammar",
+      "grammar_implication": "Add a rule extra_context_object that can produce nested dictionary literals (key: value pairs where value may be another object) instead of only flat string entries.",
+      "required_inputs": "extra_context_object must contain a nested dict, e.g., { \"project_name\": { \"sub\": \"value\" } } and invocation_object.no_input=false so that extra_context is merged",
+      "target": "cookiecutter/generate.py:72"
+    },
+    {
+      "code_signal": "When a context value is a list and in_dictionary_variable is true, the list is overwritten",
+      "delivery": "grammar",
+      "grammar_implication": "Extend extra_context_object to allow list literals with string elements (reuse choice_array syntax).",
+      "required_inputs": "extra_context_object must include a list value, e.g., { \"license\": [\"MIT\",\"GPL\"] }",
+      "target": "cookiecutter/generate.py:76"
+    },
+    {
+      "code_signal": "User input string is stripped and lower\u2011cased before yes/no choice check",
+      "delivery": "grammar",
+      "grammar_implication": "Allow extra_context_object values to be arbitrary strings (currently only specific literals).",
+      "required_inputs": "Provide a prompt answer via extra_context that is a string with mixed case and surrounding whitespace, e.g., \"  YeS  \" for a boolean prompt",
+      "target": "cookiecutter/prompt.py:53"
+    },
+    {
+      "code_signal": "Path expansion for a clone_to_dir that contains environment variables",
+      "delivery": "grammar",
+      "grammar_implication": "Replace template_source rule with alternatives: '\"local\"' | env_path, where env_path matches a string containing \"$\" and alphanumerics.",
+      "required_inputs": "template_source rule should permit a value like \"${HOME}/my_template\"",
+      "target": "cookiecutter/zipfile.py:38"
+    },
+    {
+      "code_signal": "Splitting repo_url on '+' to detect VCS type",
+      "delivery": "grammar",
+      "grammar_implication": "Add a new rule vcs_url and extend template_source to include vcs_url alternatives.",
+      "required_inputs": "template_source must be a VCS URL such as \"git+https://example.com/repo.git\"",
+      "target": "cookiecutter/vcs.py:41"
+    },
+    {
+      "code_signal": "os.path.expandvars and expanduser are called on a path string",
+      "delivery": "grammar",
+      "grammar_implication": "Allow template_source to accept interpolated paths with '~' and '$' characters.",
+      "required_inputs": "template_source path containing both a user\u2011home shortcut and an env var, e.g., \"~/{{cookiecutter.repo_name}}\" or \"$HOME/{{cookiecutter.repo_name}}\"",
+      "target": "cookiecutter/config.py:38"
+    }
+  ],
+  "overrepresented_responses": [
+    "mode=api with no_input=true and extra_context empty (produces NonTemplatedInputDirException)",
+    "hook_script='null' (no hook execution)",
+    "json_bool always true/false but not combined with conflicting overwrite/skip flags"
+  ],
+  "reachable_by_grammar": [
+    "All missing lines in generate.py related to list handling and deep dict overwrites can be reached by adding extra_context entries that are lists or nested dicts.",
+    "prompt.py yes/no parsing can be exercised by providing extra_context values that are strings like \"YES\", \"no\", etc., and by adding choice_array with different casing.",
+    "zipfile.py URL handling can be reached by setting template_source to a remote URL (currently only \"local\"), requiring a new rule.",
+    "vcs.py repo URL parsing can be reached by allowing template_source to be a VCS URL (e.g., \"git+https://example.com/repo.git\").",
+    "config.py path expansion can be exercised by adding a rule for template_source that yields a path containing environment variables (e.g., \"$HOME/template\")."
+  ],
+  "reachable_by_harness_only": [
+    "Scenarios that require the harness to set internal flags such as keep_project_on_failure without changing the manifest (already possible).",
+    "Simulating file\u2011system collisions for output_dir_state=project_exists while varying overwrite_if_exists/skip_if_file_exists \u2013 the harness can pre\u2011create a dummy project directory."
+  ],
+  "recommended_rule_edits": [
+    {
+      "rationale": "Current rule only yields empty object or single flat key/value pairs. To hit generate.py list and deep\u2011dict branches we need nested objects and list literals. Expand the rule to allow arbitrary JSON objects and arrays, reusing existing choice_array and adding a generic array rule.",
+      "rule": "extra_context_object"
+    },
+    {
+      "rationale": "Only \"local\" is allowed, preventing zipfile and vcs code paths. Add alternatives for env_path, vcs_url, and remote zip URLs so that path expansion and repo URL parsing are exercised.",
+      "rule": "template_source"
+    },
+    {
+      "rationale": "Only three alternatives exist; add a script that writes a file and then exits with non\u2011zero code after writing, to differentiate pre_prompt vs post_gen_project failure handling.",
+      "rule": "hook_script"
+    },
+    {
+      "rationale": "Currently either null or exactly two entries. Add a single\u2011entry alternative and allow three entries to vary the loop count and hit more branches.",
+      "rule": "nested_templates_value"
+    },
+    {
+      "rationale": "Only single glob patterns are allowed. Add a combination array with both asset and rendered globs to trigger multiple copy\u2011without\u2011render paths.",
+      "rule": "copy_without_render_array"
+    },
+    {
+      "rationale": "Null and '\\n' are covered; include '\\r\\n' and also an empty string to test line\u2011ending handling in generate.py.",
+      "rule": "newline_value"
+    }
+  ],
+  "underexplored_scenario_families": [
+    "overwrite_if_exists vs skip_if_file_exists interactions when output_dir_state=project_exists",
+    "pre_prompt and post_gen_project hook scripts that succeed or raise SystemExit",
+    "nested_templates with both entries present and varying key/path/title/description values",
+    "copy_without_render patterns that include both asset glob and rendered glob together",
+    "new_lines values other than '\\n' (i.e., '\\r\\n' and null) affecting file writing",
+    "extra_context providing non\u2011string values (e.g., boolean, list) to trigger generate.py list handling",
+    "replay payloads that partially fill the template (missing some keys) to hit generate.py missing\u2011key branches",
+    "choice_array variations combined with boolean prompts to hit prompt.py conversion logic"
+  ],
+  "unreachable_harness_limits": [
+    "The harness cannot create a real remote git repository, so full VCS cloning paths remain unreachable unless the grammar supplies a mock URL that the code treats as local.",
+    "The harness cannot inject malformed JSON into the manifest; all inputs must be syntactically valid according to the grammar."
+  ]
+}

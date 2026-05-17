@@ -1,0 +1,25 @@
+{
+  "rationale": "Expand grammar to cover deep dicts, lists, remote sources, and confirm prompts",
+  "updates": [
+    {
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' extra_context_pair (',' extra_context_pair)* '}'\n    ;",
+      "rule": "extra_context_object"
+    },
+    {
+      "replacement": "template_source\n    : '\"local\"'\n    | STRING_LITERAL   // e.g. \"git+https://example.com/repo.git\" or a zip URL\n    ;",
+      "rule": "template_source"
+    },
+    {
+      "replacement": "prompts_object\n    : '{}'\n    | '{' prompt_entry (',' prompt_entry)* '}'\n    ;\n\nprompt_entry\n    : '\"project_name\"' ':' '\"Project name?\"'\n    | '\"use_docker\"' ':' '\"Use Docker?\"'\n    | '\"license\"' ':' '\"Choose a license\"'\n    | '\"database\"' ':' '\"Database settings\"'\n    | '\"confirm_use_docker\"' ':' '\"[yes/no]\"'   // confirm\u2011style prompt\n    ;",
+      "rule": "prompts_object"
+    },
+    {
+      "replacement": "nested_json_object\n    : '{' json_pair (',' json_pair)* '}'\n    ;\n\njson_pair\n    : STRING_LITERAL ':' json_value\n    ;\n\njson_value\n    : STRING_LITERAL\n    | NUMBER_LITERAL\n    | json_bool\n    | list_literal\n    | nested_json_object\n    ;",
+      "rule": "nested_json_object"
+    },
+    {
+      "replacement": "list_literal\n    : '[' json_value (',' json_value)* ']'\n    ;",
+      "rule": "list_literal"
+    }
+  ]
+}

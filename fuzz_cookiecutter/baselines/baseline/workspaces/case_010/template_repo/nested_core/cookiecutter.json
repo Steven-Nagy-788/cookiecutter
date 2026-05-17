@@ -1,0 +1,17 @@
+{
+  "project_name": "Broken Value",
+  "repo_name": "{{ cookiecutter.project_name }}_pkg",
+  "feature_flags": {
+    "docs": true,
+    "ci": true
+  },
+  "owner": {
+    "team": "platform",
+    "email": "team@example.com"
+  },
+  "__prompts__": {
+    "project_name": "Name of the generated package",
+    "owner": "Owner metadata"
+  },
+  "_new_lines": "\n"
+}

@@ -1,0 +1,25 @@
+{
+  "rationale": "Expand grammar to cover nested extra_context, URL/VCS sources, raw prompt values, partial replay dicts, and string booleans.",
+  "updates": [
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{' '}'\n    | '{' extra_context_pair (',' extra_context_pair)* '}'\n    ;\n\nextra_context_pair\n    : STRING ':' json_value\n    ;\n\njson_value\n    : STRING\n    | json_bool\n    | json_object\n    | json_array\n    ;\n\njson_object\n    : '{' '}'\n    | '{' extra_context_pair (',' extra_context_pair)* '}'\n    ;\n\njson_array\n    : '[' ']'\n    | '[' STRING (',' STRING)* ']'\n    ;"
+    },
+    {
+      "rule": "template_source",
+      "replacement": "template_source\n    : '\"local\"'\n    | URL\n    | VCS_URL\n    ;\n\nURL\n    : '\"' ('http' 's'? '://' ~[\"']*) '\"'\n    ;\n\nVCS_URL\n    : '\"' ('git' '+' 'https' '://' ~[\"']*) '\"'\n    | '\"' ('hg' '+' 'https' '://' ~[\"']*) '\"'\n    ;"
+    },
+    {
+      "rule": "prompts_object",
+      "replacement": "prompts_object\n    : '{}'\n    | '{' prompt_pair (',' prompt_pair)* '}'\n    ;\n\nprompt_pair\n    : STRING ':' STRING\n    ;"
+    },
+    {
+      "rule": "replay_value",
+      "replacement": "replay_value\n    : 'null'\n    | '{' '\"cookiecutter\"' ':' '{' '\"project_name\"' ':' '\"Replay Project\"' '}' '}'\n    | '{' '\"cookiecutter\"' ':' '{' '\"project_name\"' ':' '\"Replay Project\"' ',' '\"repo_name\"' ':' '\"replay_project\"' ',' '\"use_docker\"' ':' 'true' '}' '}'\n    ;"
+    },
+    {
+      "rule": "json_bool",
+      "replacement": "json_bool\n    : 'true'\n    | 'false'\n    | '\"true\"'\n    | '\"false\"'\n    ;"
+    }
+  ]
+}

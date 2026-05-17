@@ -1,0 +1,33 @@
+{
+  "rationale": "Add grammar variants to cover deep‑merge, boolean conversion, hook failures, flag combos, nested templates, extra newline, repo URLs and config path expansion.",
+  "updates": [
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' \"project_name\" ':' '\"Overwritten Project\"' '}'\n    | '{' \"use_docker\" ':' '\"true\"' '}'\n    // nested dictionary for deep‑merge\n    | '{' \"project_name\" ':' '{' \"sub\" ':' '\"value\"' '}' '}'\n    // list value for deep‑merge of list variables\n    | '{' \"license\" ':' '[' '\"MIT\"' ',' '\"GPL\"' ']' '}'\n    // boolean‑style strings for prompt conversion\n    | '{' \"use_docker\" ':' '\"yes\"' '}'\n    | '{' \"use_docker\" ':' '\"no\"' '}'\n    ;"
+    },
+    {
+      "rule": "hooks_object",
+      "replacement": "hooks_object\n    : '{' \"pre_prompt\" ':' hook_script ',' \"pre_gen_project\" ':' hook_script ',' \"post_gen_project\" ':' hook_script '}'\n    // all hooks null (no hooks)\n    | '{' \"pre_prompt\" ':' 'null' ',' \"pre_gen_project\" ':' 'null' ',' \"post_gen_project\" ':' 'null' '}'\n    // successful hook scripts\n    | '{' \"pre_prompt\" ':' hook_script ',' \"pre_gen_project\" ':' hook_script ',' \"post_gen_project\" ':' hook_script '}'\n    // failing hook: pre_gen_project raises exception after pre_prompt succeeds\n    | '{' \"pre_prompt\" ':' hook_script ',' \"pre_gen_project\" ':' '\"raise SystemExit(1)\\\\n\"' ',' \"post_gen_project\" ':' 'null' '}'\n    ;"
+    },
+    {
+      "rule": "invocation_object",
+      "replacement": "invocation_object\n    : '{' \"no_input\" ':' 'true' ',' \"extra_context\" ':' extra_context_object ',' \"replay\" ':' 'null' ',' \"overwrite_if_exists\" ':' json_bool ',' \"skip_if_file_exists\" ':' json_bool ',' \"accept_hooks\" ':' json_bool ',' \"keep_project_on_failure\" ':' json_bool ',' \"output_dir_state\" ':' output_dir_state '}'\n    | '{' \"no_input\" ':' 'false' ',' \"extra_context\" ':' '{}' ',' \"replay\" ':' replay_value ',' \"overwrite_if_exists\" ':' json_bool ',' \"skip_if_file_exists\" ':' json_bool ',' \"accept_hooks\" ':' json_bool ',' \"keep_project_on_failure\" ':' json_bool ',' \"output_dir_state\" ':' output_dir_state '}'\n    // mixed flag combinations\n    | '{' \"no_input\" ':' 'false' ',' \"extra_context\" ':' extra_context_object ',' \"replay\" ':' 'null' ',' \"overwrite_if_exists\" ':' 'true' ',' \"skip_if_file_exists\" ':' 'false' ',' \"accept_hooks\" ':' json_bool ',' \"keep_project_on_failure\" ':' json_bool ',' \"output_dir_state\" ':' output_dir_state '}'\n    | '{' \"no_input\" ':' 'false' ',' \"extra_context\" ':' extra_context_object ',' \"replay\" ':' 'null' ',' \"overwrite_if_exists\" ':' 'false' ',' \"skip_if_file_exists\" ':' 'true' ',' \"accept_hooks\" ':' json_bool ',' \"keep_project_on_failure\" ':' json_bool ',' \"output_dir_state\" ':' output_dir_state '}'\n    ;"
+    },
+    {
+      "rule": "nested_templates_value",
+      "replacement": "nested_templates_value\n    : 'null'\n    | '[' nested_template_entry ',' nested_template_entry ']'\n    // single element list to trigger processing loop\n    | '[' nested_template_entry ']'\n    ;"
+    },
+    {
+      "rule": "newline_value",
+      "replacement": "newline_value\n    : '\"\\\\n\"'\n    | '\"\\\\r\\\\n\"'\n    | '\"\\\\r\"'\n    | 'null'\n    ;"
+    },
+    {
+      "rule": "repo_url_literal",
+      "replacement": "repo_url_literal\n    : '\"git+https://example.com/repo.git\"'\n    | '\"hg+ssh://example.com/repo\"'\n    ;"
+    },
+    {
+      "rule": "config_path_expr",
+      "replacement": "config_path_expr\n    : '\"~/{{cookiecutter.repo_name}}\"'\n    | '\"${HOME}/{{cookiecutter.repo_name}}\"'\n    ;"
+    }
+  ]
+}

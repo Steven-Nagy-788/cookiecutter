@@ -1,0 +1,97 @@
+{
+  "analysis": "The current corpus heavily exercises the CLI/API mode selection and the pre_prompt hook failure, but most branches in generate.py (handling of nested dictionary overwrites), prompt.py (choice parsing), zipfile.py (URL handling), vcs.py (repo URL parsing) and config.py (path expansion) remain untouched. The grammar already covers many template fields, but lacks constructs to trigger deeper dictionary variable handling, choice\u2011to\u2011bool conversion, URL\u2011based template sources, VCS repo types, and path expansion via environment variables. Additionally, replay payloads are only exercised with a simple static dict; more complex partial replays could hit missing branches.",
+  "line_target_hints": [
+    {
+      "code_signal": "Assigning a new value to a variable inside a nested dictionary (context[variable] = overwrite) when in_dictionary_variable is true.",
+      "delivery": "grammar",
+      "grammar_implication": "Add a rule allowing extra_context_object to contain arbitrary nested JSON objects (key: string, value: string or object) instead of the current flat literals.",
+      "required_inputs": "extra_context_object must contain a nested dict, e.g. { \"project_name\": { \"sub\": \"value\" } } and the template must reference {{ cookiecutter.project_name.sub }} in a prompt or file.",
+      "target": "cookiecutter/generate.py:72"
+    },
+    {
+      "code_signal": "Handling list values inside a nested dictionary variable (context[variable] = overwrite) and then continuing the loop.",
+      "delivery": "grammar",
+      "grammar_implication": "Extend extra_context_object to allow list literals (e.g. '[' string (',' string)* ']') as values.",
+      "required_inputs": "extra_context_object with a list value inside a nested dict, e.g. { \"features\": [\"a\", \"b\"] } and a template reference {{ cookiecutter.features }}.",
+      "target": "cookiecutter/generate.py:76-78"
+    },
+    {
+      "code_signal": "Conversion of raw user input strings to boolean via yes_choices/no_choices.",
+      "delivery": "grammar",
+      "grammar_implication": "Allow extra_context_object values to be raw strings (not only quoted literals) that are not wrapped in {{ }} so that the prompt parser receives them directly.",
+      "required_inputs": "prompts_object must include a boolean\u2011type prompt (e.g., \"use_docker\": \"Use Docker?\"), and extra_context_object must supply a raw string like \"yes\" or \"no\" (case\u2011insensitive).",
+      "target": "cookiecutter/prompt.py:53-58"
+    },
+    {
+      "code_signal": "Path expansion and URL detection for remote zip downloads.",
+      "delivery": "harness",
+      "grammar_implication": "Introduce a new rule template_source_url : '\"https://\"' ... to allow URL literals.",
+      "required_inputs": "template_source set to a URL string (e.g., \"https://example.com/template.zip\") and harness must provide a reachable zip file.",
+      "target": "cookiecutter/zipfile.py:38-42"
+    },
+    {
+      "code_signal": "Parsing repo_url with a '+' separator to determine VCS type (git/hg).",
+      "delivery": "harness",
+      "grammar_implication": "Add an alternative to template_source that matches VCS URL patterns.",
+      "required_inputs": "template_source set to a VCS URL like \"git+https://github.com/user/repo.git\".",
+      "target": "cookiecutter/vcs.py:41-44"
+    },
+    {
+      "code_signal": "Expansion of environment variables in a path string.",
+      "delivery": "harness",
+      "grammar_implication": "No grammar change needed; harness must set env vars.",
+      "required_inputs": "An environment variable (e.g., $HOME) used inside a path field such as \"${HOME}/templates\" passed to the harness before execution.",
+      "target": "cookiecutter/config.py:38-39"
+    }
+  ],
+  "overrepresented_responses": [
+    "mode=api",
+    "pre_prompt hook raising SystemExit",
+    "no_input=true with empty extra_context"
+  ],
+  "reachable_by_grammar": [
+    "nested dictionary overwrites (via extra_context_object with nested dicts)",
+    "choice\u2011to\u2011bool conversion (via prompts_object with choice lists and extra_context providing raw strings)",
+    "partial replay payloads (by extending replay_value with incomplete cookiecutter dict)",
+    "hooks success/failure (already reachable)",
+    "overwrite_if_exists / skip_if_file_exists variations (already reachable)"
+  ],
+  "reachable_by_harness_only": [
+    "remote template_source (requires actual git/hg URL, not representable in current grammar)",
+    "environment variable expansion in config paths (requires harness to set env vars before invocation)",
+    "zipfile extraction of remote archives (needs network/file system setup)"
+  ],
+  "recommended_rule_edits": [
+    {
+      "rationale": "Current definition only allows empty object or single\u2011key flat literals. To hit nested dictionary overwrites and list handling in generate.py, broaden it to accept arbitrary JSON objects with nested dicts and arrays.",
+      "rule": "extra_context_object"
+    },
+    {
+      "rationale": "Only \"local\" is allowed, preventing coverage of zipfile and vcs branches. Add alternatives for URL strings (http/https) and VCS URLs (git+..., hg+...).",
+      "rule": "template_source"
+    },
+    {
+      "rationale": "Include a variant where prompt values are raw strings that the prompt parser will treat as user input, enabling boolean conversion logic.",
+      "rule": "prompts_object"
+    },
+    {
+      "rationale": "Allow partial cookiecutter dicts (omit some keys) to exercise missing\u2011key handling in replay processing.",
+      "rule": "replay_value"
+    },
+    {
+      "rationale": "Add a variant that is a string \"true\"/\"false\" (unquoted) to simulate raw user input for boolean prompts.",
+      "rule": "json_bool"
+    }
+  ],
+  "underexplored_scenario_families": [
+    "nested dictionary variable overwrites in generate.py",
+    "boolean conversion of user choices in prompt.py",
+    "template_source as a remote URL (git/hg) to hit zipfile/vcs logic",
+    "environment variable expansion in config paths",
+    "partial replay payloads with missing keys"
+  ],
+  "unreachable_harness_limits": [
+    "The harness cannot simulate a VCS repository without providing a real URL; the grammar would need a new rule for template_source to accept a URL string.",
+    "Path expansion via os.path.expandvars requires external environment variables; the harness would need to set them, which is outside the manifest scope."
+  ]
+}

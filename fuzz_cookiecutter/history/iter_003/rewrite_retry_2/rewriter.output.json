@@ -1,0 +1,25 @@
+{
+  "rationale": "Add constructs to exercise VCS/zip sources, nested context merges, list literals, varied hook outcomes, and raw boolean strings.",
+  "updates": [
+    {
+      "rule": "template_source",
+      "replacement": "template_source\n    : '\"local\"'\n    | url_string\n    ;\n\nurl_string\n    : '\"git+https://example.com/repo.git\"'\n    | '\"hg+https://example.com/repo.hg\"'\n    | '\"https://example.com/template.zip\"'\n    ;"
+    },
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' extra_context_pair (',' extra_context_pair)* '}'\n    ;\n\nextra_context_pair\n    : STRING ':' json_value\n    ;\n\njson_value\n    : json_bool\n    | STRING\n    | json_object\n    | json_array\n    ;\n\njson_object\n    : '{' (STRING ':' json_value (',' STRING ':' json_value)*)? '}'\n    ;\n\njson_array\n    : '[' (json_value (',' json_value)*)? ']'\n    ;"
+    },
+    {
+      "rule": "replay_value",
+      "replacement": "replay_value\n    : 'null'\n    | json_object\n    ;"
+    },
+    {
+      "rule": "hook_script",
+      "replacement": "hook_script\n    : 'null'\n    | '\"from pathlib import Path\\\\nPath(\\'HOOK_OK\\').write_text(\\'ok\\', encoding=\\'utf-8\\')\\\\n\"'\n    | '\"raise SystemExit(1)\\\\n\"'\n    | '\"print(\\'hook succeeded\\')\\\\n\"'\n    | '\"raise RuntimeError(\\'hook failure\\')\\\\n\"'\n    ;"
+    },
+    {
+      "rule": "json_bool",
+      "replacement": "json_bool\n    : 'true'\n    | 'false'\n    ;\n\nraw_bool_string\n    : '\"Y\"'\n    | '\"y\"'\n    | '\"yes\"'\n    | '\"Yes\"'\n    | '\"N\"'\n    | '\"n\"'\n    | '\"no\"'\n    | '\"No\"'\n    ;"
+    }
+  ]
+}

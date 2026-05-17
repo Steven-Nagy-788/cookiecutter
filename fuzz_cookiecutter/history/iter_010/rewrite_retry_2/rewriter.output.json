@@ -1,0 +1,25 @@
+{
+  "rationale": "Extend grammar to cover nested extra_context, remote template sources, env‑var paths, failing hooks, and extra newline literals",
+  "updates": [
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' extra_context_pair (',' extra_context_pair)* '}'\n    ;\n\nextra_context_pair\n    : STRING ':' extra_context_value\n    ;\n\nextra_context_value\n    : STRING\n    | json_bool\n    | list_literal\n    | object_literal\n    ;\n\nlist_literal\n    : '[' (STRING (',' STRING)*)? ']'\n    ;\n\nobject_literal\n    : '{' (extra_context_pair (',' extra_context_pair)*)? '}'\n    ;"
+    },
+    {
+      "rule": "template_source",
+      "replacement": "template_source\n    : '\"local\"'\n    | '\"git+https://example.com/repo.git\"'\n    | '\"hg+https://example.com/repo.hg\"'\n    ;"
+    },
+    {
+      "rule": "copy_without_render_array",
+      "replacement": "copy_without_render_array\n    : '[]'\n    | '[' STRING ']'\n    | '[' STRING ',' STRING ']'\n    ;"
+    },
+    {
+      "rule": "hook_script",
+      "replacement": "hook_script\n    : 'null'\n    | '\"from pathlib import Path\\\\nPath(\\'HOOK_OK\\').write_text(\\'ok\\', encoding=\\'utf-8\\')\\\\n\"'\n    | '\"raise SystemExit(1)\\\\n\"'\n    | '\"raise ValueError(\\'hook fail\\')\\\\n\"'\n    ;"
+    },
+    {
+      "rule": "newline_value",
+      "replacement": "newline_value\n    : '\"\\\\n\"'\n    | '\"\\\\r\\\\n\"'\n    | 'null'\n    | '\"\\\\r\"'\n    ;"
+    }
+  ]
+}

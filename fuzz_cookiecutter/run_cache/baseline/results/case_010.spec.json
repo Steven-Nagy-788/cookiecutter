@@ -1,0 +1,24 @@
+{
+  "case_id": "case_010",
+  "manifest_path": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\cases\\case_10.json",
+  "workspace_dir": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_010",
+  "template_repo_dir": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_010\\template_repo",
+  "output_dir": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_010\\output",
+  "predicted_project_dir": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_010\\output\\Broken Value_pkg",
+  "mode": "cli",
+  "template_source": "local",
+  "invocation": {
+    "no_input": true,
+    "extra_context": {},
+    "replay": null,
+    "overwrite_if_exists": false,
+    "skip_if_file_exists": true,
+    "accept_hooks": true,
+    "keep_project_on_failure": true,
+    "output_dir_state": "missing"
+  },
+  "replay_file": null,
+  "notes": {
+    "cwd": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter"
+  }
+}

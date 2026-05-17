@@ -1,0 +1,17 @@
+{
+  "case_id": "case_004",
+  "details": {},
+  "duration_ms": 95,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": "pre_prompt",
+  "manifest_path": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\cases\\case_4.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Pre-Prompt Hook script failed\n"
+}

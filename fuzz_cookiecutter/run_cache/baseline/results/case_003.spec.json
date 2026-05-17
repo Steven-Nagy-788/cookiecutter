@@ -1,0 +1,30 @@
+{
+  "case_id": "case_003",
+  "manifest_path": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\cases\\case_3.json",
+  "workspace_dir": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_003",
+  "template_repo_dir": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_003\\template_repo",
+  "output_dir": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_003\\output",
+  "predicted_project_dir": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_003\\output\\Replay Project_pkg",
+  "mode": "cli",
+  "template_source": "local",
+  "invocation": {
+    "no_input": false,
+    "extra_context": {},
+    "replay": {
+      "cookiecutter": {
+        "project_name": "Replay Project",
+        "repo_name": "replay_project",
+        "use_docker": true
+      }
+    },
+    "overwrite_if_exists": true,
+    "skip_if_file_exists": true,
+    "accept_hooks": false,
+    "keep_project_on_failure": true,
+    "output_dir_state": "missing"
+  },
+  "replay_file": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_003\\replay.json",
+  "notes": {
+    "cwd": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "templates": {
+    "core": {
+      "path": "nested_core",
+      "title": "Core Template",
+      "description": "Template with a nested prompt path"
+    },
+    "service": {
+      "path": "nested_service",
+      "title": "Service Template",
+      "description": "Template with a nested prompt path"
+    }
+  }
+}

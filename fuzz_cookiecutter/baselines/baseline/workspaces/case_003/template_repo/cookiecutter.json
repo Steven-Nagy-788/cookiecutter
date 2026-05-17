@@ -1,0 +1,16 @@
+{
+  "project_name": "Replay Project",
+  "repo_name": "{{ cookiecutter.project_name }}_pkg",
+  "use_docker": false,
+  "license": [
+    "BSD",
+    "MIT"
+  ],
+  "database": {
+    "engine": "postgres",
+    "port": "5432"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/rendered/*.yml"
+  ]
+}

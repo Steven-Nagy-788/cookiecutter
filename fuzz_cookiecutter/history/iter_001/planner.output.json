@@ -1,0 +1,127 @@
+{
+  "analysis": "The current corpus heavily exercises the API mode with non‑templated input directories, yielding many WARNINGs, but it barely touches the prompt conversion logic, the VCS/ZIP handling, and the deep‑merge code in generate.py. Hook scripts, overwrite/skip flags, and replay payloads are under‑used. Consequently, large blocks of generate.py, prompt.py, zipfile.py, vcs.py and config.py remain uncovered.",
+  "overrepresented_responses": [
+    "NonTemplatedInputDirException in generate_files (API mode)",
+    "SystemExit from pre_prompt hook"
+  ],
+  "underexplored_scenario_families": [
+    "Successful and failing hook scripts (pre_gen_project, post_gen_project)",
+    "Binary file handling with copy_without_render patterns",
+    "new_lines variations (\\n vs \\r\\n vs null)",
+    "overwrite_if_exists / skip_if_file_exists flag combinations",
+    "Replay‑driven runs with partial context",
+    "CLI mode with no_input=false and default‑driven answers",
+    "Nested template processing (nested_templates non‑null)",
+    "Path expansion via config.expand_path and zipfile.clone_to_dir handling"
+  ],
+  "reachable_by_grammar": [
+    "execution_mode (cli/api)",
+    "template_source (local)",
+    "template_object (all sub‑objects)",
+    "invocation_object (both branches)",
+    "extra_context_object (including custom keys)",
+    "replay_value (null or full dict)",
+    "hooks_object (null / success / failure scripts)",
+    "copy_without_render_array (different glob patterns)",
+    "newline_value (both newline strings and null)",
+    "json_bool (true/false)",
+    "nested_templates_value (null or list of entries)",
+    "choice_array (different license lists)",
+    "binary_path_expr / text_contents variations"
+  ],
+  "reachable_by_harness_only": [
+    "zipfile.clone_to_dir path expansion (requires a real filesystem path)",
+    "vcs.repo_url parsing (needs a URL string supplied by the harness)",
+    "config.expand_path handling of environment variables and ~ (requires harness to set env vars)",
+    "generate.py deep‑merge of dictionary variables that are only created when extra_context contains nested dicts not expressed in the current grammar"
+  ],
+  "unreachable_harness_limits": [
+    "The harness cannot create actual files on disk, so binary file write‑out paths cannot be verified beyond grammar generation.",
+    "Network‑based VCS cloning cannot be performed in the sandbox, limiting coverage of vcs.clone_repo."
+  ],
+  "line_target_hints": [
+    {
+      "target": "cookiecutter/generate.py:72",
+      "delivery": "grammar",
+      "code_signal": "assigning a new key into a nested context dictionary when a variable is a dictionary variable",
+      "required_inputs": "extra_context_object must contain a nested dict, e.g. { \"project_name\": { \"sub\": \"value\" } } and invocation_object.no_input = false so the generator walks the dict.",
+      "grammar_implication": "Add an alternative to extra_context_object that yields a nested dictionary structure (e.g., '{ \"project_name\": { \"sub\": \"value\" } }')."
+    },
+    {
+      "target": "cookiecutter/generate.py:76-78",
+      "delivery": "grammar",
+      "code_signal": "handling list values inside a dictionary variable during deep‑merge",
+      "required_inputs": "extra_context_object with a list value for a known variable, e.g. { \"license\": [\"MIT\", \"GPL\"] } and a matching variable in cookiecutter_json_object.",
+      "grammar_implication": "Extend extra_context_object with a case that includes a list literal (JSON array) for a key."
+    },
+    {
+      "target": "cookiecutter/prompt.py:53-58",
+      "delivery": "grammar",
+      "code_signal": "conversion of user input strings to boolean choices (yes/no)",
+      "required_inputs": "invocation_object.no_input = false and prompts_object must contain a boolean‑type prompt (e.g., \"use_docker\"), then extra_context_object supplies values like \"yes\", \"no\", \"y\", \"n\".",
+      "grammar_implication": "Add a new rule extra_context_object_bool that can emit boolean‑style strings (\"yes\", \"no\", \"y\", \"n\", \"true\", \"false\") for boolean prompts."
+    },
+    {
+      "target": "cookiecutter/zipfile.py:38-39",
+      "delivery": "harness",
+      "code_signal": "expanding a user‑provided clone_to_dir path with Path.expanduser",
+      "required_inputs": "A manifest that sets a top‑level field (e.g., \"zip_clone_dir\": \"~/tmp/template\") which the harness passes to zipfile.clone_to_dir(). The grammar does not currently expose such a field.",
+      "grammar_implication": "Introduce a top‑level optional field (e.g., \"zip_clone_dir\") in the case manifest and map it to the harness call."
+    },
+    {
+      "target": "cookiecutter/vcs.py:41-44",
+      "delivery": "harness",
+      "code_signal": "splitting a repo URL of the form \"git+https://example.com/repo.git\"",
+      "required_inputs": "A manifest that includes a field \"repo_url\": \"git+https://example.com/repo.git\" passed to the harness when invoking the template source loader.",
+      "grammar_implication": "Add a rule repo_url_literal that can produce strings with a '+' separator (git+, hg+)."
+    },
+    {
+      "target": "cookiecutter/config.py:38-39",
+      "delivery": "harness",
+      "code_signal": "os.path.expandvars and expanduser on a path containing $HOME or ~",
+      "required_inputs": "A manifest field \"config_path\": \"~/{{cookiecutter.repo_name}}\"\" with an environment variable set (e.g., $HOME).",
+      "grammar_implication": "Add a rule config_path_expr that can embed '~' or '${HOME}' placeholders."
+    },
+    {
+      "target": "cookiecutter/config.py:48-49",
+      "delivery": "grammar",
+      "code_signal": "deep copy of default configuration and merging overrides",
+      "required_inputs": "extra_context_object that supplies a top‑level key matching a config option (e.g., \"default_context\": { \"project_slug\": \"myproj\" })",
+      "grammar_implication": "Add an extra_context variant that includes a nested dict named \"default_context\" to trigger the deep‑copy/merge path."
+    }
+  ],
+  "recommended_rule_edits": [
+    {
+      "rule": "extra_context_object",
+      "rationale": "Current alternatives only provide flat string values. Adding a nested dictionary alternative and a list‑value alternative will allow the generator's deep‑merge logic (lines 72‑78) to be exercised."
+    },
+    {
+      "rule": "extra_context_object",
+      "rationale": "Introduce a boolean‑style string alternative (\"yes\", \"no\", \"y\", \"n\") so that prompt._convert_to_bool() (prompt.py lines 53‑58) is exercised when no_input=false."
+    },
+    {
+      "rule": "hooks_object",
+      "rationale": "Add a fourth alternative where one of the hook scripts raises an exception after a successful pre_prompt, to hit failure paths in cookiecutter/hooks.py."
+    },
+    {
+      "rule": "invocation_object",
+      "rationale": "Create a third alternative that mixes overwrite_if_exists=true with skip_if_file_exists=false (and vice‑versa) to explore all flag combinations in generate.py."
+    },
+    {
+      "rule": "nested_templates_value",
+      "rationale": "Add a single‑element list alternative (one nested_template_entry) to trigger the loop that processes nested templates without requiring a second entry."
+    },
+    {
+      "rule": "newline_value",
+      "rationale": "Add an explicit '\"\\r\"' alternative to increase line‑break handling coverage."
+    },
+    {
+      "rule": "repo_url_literal",
+      "rationale": "New rule (top‑level) to emit repo URLs with a '+' separator, enabling vcs.py parsing."
+    },
+    {
+      "rule": "config_path_expr",
+      "rationale": "New rule (top‑level) to emit paths containing '~' or '${HOME}' so config.expand_path is exercised."
+    }
+  ]
+}

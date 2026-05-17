@@ -1,0 +1,25 @@
+{
+  "rationale": "Add flexibility to trigger nested dict overwrites, list handling, remote sources, raw prompts, and partial replays.",
+  "updates": [
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{' (extra_pair (',' extra_pair)*)? '}'\n    ;\n\nextra_pair\n    : STRING ':' json_value\n    ;\n\njson_value\n    : STRING\n    | extra_object\n    | json_array\n    ;\n\nextra_object\n    : '{' (extra_pair (',' extra_pair)*)? '}'\n    ;\n\njson_array\n    : '[' (STRING (',' STRING)*)? ']'\n    ;"
+    },
+    {
+      "rule": "template_source",
+      "replacement": "template_source\n    : '\"local\"'\n    | url_literal\n    ;\n\nurl_literal\n    : STRING\n    ;"
+    },
+    {
+      "rule": "prompts_object",
+      "replacement": "prompts_object\n    : '{}'\n    | '{' (prompt_pair (',' prompt_pair)*)? '}'\n    ;\n\nprompt_pair\n    : STRING ':' STRING\n    ;"
+    },
+    {
+      "rule": "replay_value",
+      "replacement": "replay_value\n    : 'null'\n    | '{' '\\\"cookiecutter\\\"' ':' '{' replay_pair (',' replay_pair)* '}' '}'\n    ;\n\nreplay_pair\n    : STRING ':' (STRING | json_bool)\n    ;"
+    },
+    {
+      "rule": "json_bool",
+      "replacement": "json_bool\n    : 'true'\n    | 'false'\n    | '\"true\"'\n    | '\"false\"'\n    ;"
+    }
+  ]
+}

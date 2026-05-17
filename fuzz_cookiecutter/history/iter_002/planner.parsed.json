@@ -1,0 +1,97 @@
+{
+  "analysis": "The current corpus heavily exercises the CLI/API mode selection and the pre_prompt hook failure, but most branches in generate.py (handling of deep dictionary overwrites and list merging), prompt.py (choice-to-bool conversion), zipfile.py (URL handling), vcs.py (repo URL parsing) and config.py (path expansion) remain untouched. The grammar already covers many template fields, but lacks constructs that trigger those missing lines, such as nested dictionary variables, list\u2011type context values, boolean choice prompts, and URL\u2011based template sources.",
+  "line_target_hints": [
+    {
+      "code_signal": "assigning a new value to a deep dictionary variable when in_dictionary_variable is true",
+      "delivery": "grammar",
+      "grammar_implication": "Add a rule allowing extra_context_object to contain arbitrary nested JSON objects (e.g., a new rule nested_json_object) and allow path_expr / text_contents to reference those nested keys.",
+      "required_inputs": "\"extra_context\" object containing a nested dictionary, e.g. { \"project_name\": { \"sub\": \"value\" } } and a template that references {{ cookiecutter.project_name.sub }}",
+      "target": "cookiecutter/generate.py:72"
+    },
+    {
+      "code_signal": "handling a list value in the context when in_dictionary_variable is true",
+      "delivery": "grammar",
+      "grammar_implication": "Extend extra_context_object to allow array literals (choice_array or a new list_literal rule) as values.",
+      "required_inputs": "\"extra_context\" object with a list value, e.g. { \"features\": [\"a\", \"b\"] } and a template that uses {{ cookiecutter.features }}",
+      "target": "cookiecutter/generate.py:76"
+    },
+    {
+      "code_signal": "conversion of a user answer string to a boolean via yes_choices/no_choices",
+      "delivery": "grammar",
+      "grammar_implication": "Introduce a new prompts_object variant that includes a \"confirm\" field, e.g., \"use_docker\": \"[yes/no]\", and allow extra_context to supply the raw string answer.",
+      "required_inputs": "A prompt entry of type \"confirm\" (or a boolean prompt) that receives a string answer like \"yes\" or \"no\"; the harness must feed the answer via extra_context or replay payload.",
+      "target": "cookiecutter/prompt.py:53"
+    },
+    {
+      "code_signal": "expansion of a user\u2011provided clone_to_dir path that contains '~' or env vars",
+      "delivery": "harness",
+      "grammar_implication": "No grammar change needed; harness must set env vars and pass a path containing them.",
+      "required_inputs": "Invocation with output_dir_state pointing to a path like \"~/tmp/{{cookiecutter.repo_name}}\" and the harness sets an environment variable used in the path.",
+      "target": "cookiecutter/zipfile.py:38"
+    },
+    {
+      "code_signal": "splitting a repo URL on '+' to separate VCS type from URL",
+      "delivery": "harness",
+      "grammar_implication": "Add a new alternative to template_source allowing a string literal that matches the VCS URL pattern.",
+      "required_inputs": "Template source set to a remote VCS URL such as \"git+https://example.com/repo.git\"; harness must mock the VCS checkout routine.",
+      "target": "cookiecutter/vcs.py:41"
+    },
+    {
+      "code_signal": "os.path.expandvars and expanduser on a configuration path",
+      "delivery": "harness",
+      "grammar_implication": "No grammar edit; just ensure harness can inject env vars.",
+      "required_inputs": "A configuration file path in the manifest that includes \"$HOME\" or \"~\"; harness must set the corresponding environment variable.",
+      "target": "cookiecutter/config.py:38"
+    }
+  ],
+  "overrepresented_responses": [
+    "mode=api",
+    "pre_prompt hook raising SystemExit",
+    "no_input=true with empty extra_context"
+  ],
+  "reachable_by_grammar": [
+    "deep dictionary variable overwrites (via extra_context_object with nested dicts)",
+    "list\u2011type context values (extra_context_object with arrays)",
+    "yes/no choice prompts (adding a prompt that expects a boolean)",
+    "hooks that succeed or fail (hook_script alternatives already present)",
+    "nested_templates variations (already in grammar)"
+  ],
+  "reachable_by_harness_only": [
+    "remote zip URL template source (requires harness to supply a URL and a cached zip file)",
+    "VCS repo URL parsing (requires harness to mock a VCS checkout)",
+    "config path expansion with env vars (requires harness to set env vars and invoke config helpers)"
+  ],
+  "recommended_rule_edits": [
+    {
+      "rationale": "Current definition only allows empty object or single\u2011key objects with scalar values. To hit deep dictionary overwrites and list handling, broaden it to accept nested JSON objects and arrays.",
+      "rule": "extra_context_object"
+    },
+    {
+      "rationale": "Add an alternative that matches a remote URL string (e.g., '\"git+https://example.com/repo.git\"') so that generate.py and vcs.py code paths for remote templates become reachable.",
+      "rule": "template_source"
+    },
+    {
+      "rationale": "Introduce a confirm\u2011style prompt (e.g., \"use_docker\": \"[yes/no]\") to exercise the yes/no conversion logic in prompt.py.",
+      "rule": "prompts_object"
+    },
+    {
+      "rationale": "Create a reusable rule for arbitrary JSON objects (key/value pairs where values can be strings, numbers, booleans, arrays, or other objects) and reference it from extra_context_object.",
+      "rule": "nested_json_object"
+    },
+    {
+      "rationale": "Define a rule for JSON arrays (e.g., '[' choice_array ']') to allow list values in extra_context.",
+      "rule": "list_literal"
+    }
+  ],
+  "underexplored_scenario_families": [
+    "deep dictionary variable overwrites in generate.py",
+    "list\u2011type context merging in generate.py",
+    "yes/no choice conversion in prompt.py",
+    "template source as a remote zip URL",
+    "VCS repo URL parsing with '+' separator",
+    "environment\u2011variable/user\u2011home expansion in config paths"
+  ],
+  "unreachable_harness_limits": [
+    "The harness cannot fabricate a real remote zip or VCS repo without external resources; such cases must be simulated via mocks, which the current harness does not provide."
+  ]
+}

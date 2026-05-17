@@ -1,0 +1,19 @@
+{
+  "case_id": "case_011",
+  "details": {
+    "exception_repr": "UndefinedVariableInTemplate(\"Unable to create file '{{cookiecutter.repo_name}}\\\\src\\\\{{cookiecutter.repo_name}}\\\\__init__.py'\", UndefinedError(\"'collections.OrderedDict object' has no attribute 'database'\"), OrderedDict({'cookiecutter': OrderedDict({'project_name': 'Overwritten Project', 'repo_name': 'Overwritten Project_pkg', 'feature_flags': {'docs': False, 'ci': False}, 'owner': {'team': 'platform', 'email': 'team@example.com'}, '_copy_without_render': ['{{cookiecutter.repo_name}}/assets/*'], '_template': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_011\\\\template_repo\\\\nested_core', '_output_dir': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_011\\\\output', '_repo_dir': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_011\\\\template_repo\\\\nested_core', '_checkout': None}), '_cookiecutter': {'project_name': 'Overwritten Project', 'repo_name': '{{ cookiecutter.project_name }}_pkg', 'feature_flags': OrderedDict({'docs': False, 'ci': False}), 'owner': OrderedDict({'team': 'platform', 'email': 'team@example.com'})}}))"
+  },
+  "duration_ms": 136,
+  "exception_message": "Unable to create file '{{cookiecutter.repo_name}}\\src\\{{cookiecutter.repo_name}}\\__init__.py'. Error message: 'collections.OrderedDict object' has no attribute 'database'. Context: OrderedDict({'cookiecutter': OrderedDict({'project_name': 'Overwritten Project', 'repo_name': 'Overwritten Project_pkg', 'feature_flags': {'docs': False, 'ci': False}, 'owner': {'team': 'platform', 'email': 'team@example.com'}, '_copy_without_render': ['{{cookiecutter.repo_name}}/assets/*'], '_template': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_011\\\\template_repo\\\\nested_core', '_output_dir': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_011\\\\output', '_repo_dir': 'D:\\\\VnV\\\\project\\\\cookiecutter\\\\fuzz_cookiecutter\\\\run_cache\\\\baseline\\\\workspaces\\\\case_011\\\\template_repo\\\\nested_core', '_checkout': None}), '_cookiecutter': {'project_name': 'Overwritten Project', 'repo_name': '{{ cookiecutter.project_name }}_pkg', 'feature_flags': OrderedDict({'docs': False, 'ci': False}), 'owner': OrderedDict({'team': 'platform', 'email': 'team@example.com'})}})",
+  "exception_type": "UndefinedVariableInTemplate",
+  "execution_mode": "api",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": "render_file",
+  "manifest_path": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\cases\\case_11.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": ""
+}

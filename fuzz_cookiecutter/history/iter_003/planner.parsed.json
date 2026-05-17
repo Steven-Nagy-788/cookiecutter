@@ -1,0 +1,98 @@
+{
+  "analysis": "The current corpus heavily exercises the CLI/API mode selection and the pre_prompt hook failure, but almost never reaches the deeper generate logic (dictionary variable overwrites, list handling) or the prompt boolean conversion paths. Most failures are NonTemplatedInputDirException, indicating the template source is always \"local\" with no VCS/zip handling. Coverage gaps cluster in generate.py (variable overwrites), prompt.py (yes/no choice parsing), zipfile.py (URL handling), vcs.py (repo URL parsing), and config.py (path expansion). The grammar does not currently provide any constructs to trigger VCS/zip paths, URL\u2011based template sources, or to supply unusual boolean inputs that would exercise prompt conversion. Moreover, the extra_context and replay objects are limited, preventing exploration of nested replay payloads that could hit generate.py's dictionary merge logic.",
+  "line_target_hints": [
+    {
+      "code_signal": "Assigning a new variable in a deeper dictionary level during context merging",
+      "delivery": "grammar",
+      "grammar_implication": "Add a new alternative to extra_context_object that allows arbitrary nested JSON objects (e.g., using a generic json_object rule) so the manifest can inject a new dictionary variable.",
+      "required_inputs": "A replay payload or extra_context that contains a nested dictionary key not present in the base cookiecutter_json, e.g., extra_context: { \"new_section\": { \"subkey\": \"value\" } }",
+      "target": "cookiecutter/generate.py:72"
+    },
+    {
+      "code_signal": "Handling a list value inside a dictionary variable during merge",
+      "delivery": "grammar",
+      "grammar_implication": "Extend extra_context_object (and possibly replay_value) with a rule that can produce list literals (choice_array or a new list_literal rule).",
+      "required_inputs": "extra_context or replay containing a list, e.g., { \"features\": [\"a\", \"b\"] }",
+      "target": "cookiecutter/generate.py:76"
+    },
+    {
+      "code_signal": "Conversion of raw user input string to boolean via yes/no choice sets",
+      "delivery": "grammar",
+      "grammar_implication": "Introduce a new rule boolean_input_string with alternatives like \"Y\", \"yes\", \"No\", \" n \" etc., and allow extra_context values to be these raw strings instead of json_bool.",
+      "required_inputs": "A prompt that expects a boolean and an extra_context entry that supplies a non\u2011standard string such as \"Y\" or \"n\" (mixed case, whitespace)",
+      "target": "cookiecutter/prompt.py:53"
+    },
+    {
+      "code_signal": "Path expansion for a clone_to_dir that contains '~' or environment variables",
+      "delivery": "harness",
+      "grammar_implication": "N/A \u2013 this line is exercised by the harness configuring the output directory.",
+      "required_inputs": "Set the output_dir_state to a path like \"~/tmp/{{cookiecutter.repo_name}}\" via a new manifest field (requires harness support).",
+      "target": "cookiecutter/zipfile.py:38"
+    },
+    {
+      "code_signal": "Parsing a repo URL with a VCS scheme (e.g., \"git+https://example.com/repo.git\")",
+      "delivery": "harness",
+      "grammar_implication": "Replace the template_source rule with alternatives for \"git+...\", \"hg+...\", and zip URLs, or add a new rule template_source_url that matches a URL string.",
+      "required_inputs": "template_source must be a URL (e.g., \"git+https://example.com/repo.git\") which is currently not allowed by the grammar.",
+      "target": "cookiecutter/vcs.py:41"
+    },
+    {
+      "code_signal": "Expansion of environment variables in a path string",
+      "delivery": "harness",
+      "grammar_implication": "N/A",
+      "required_inputs": "Provide an output_dir_state that includes \"$HOME\" or \"%USERPROFILE%\"; this is controlled by the test harness rather than the manifest.",
+      "target": "cookiecutter/config.py:38"
+    }
+  ],
+  "overrepresented_responses": [
+    "mode=\"cli\" or \"api\" with default template_source=\"local\"",
+    "pre_prompt hook raising SystemExit",
+    "no_input=true paths"
+  ],
+  "reachable_by_grammar": [
+    "template_source (currently only \"local\")",
+    "execution_mode",
+    "nested_templates",
+    "hooks scripts",
+    "extra_context objects",
+    "replay payloads"
+  ],
+  "reachable_by_harness_only": [
+    "VCS/zip URL handling (requires external resources)",
+    "filesystem path expansion edge cases (e.g., '~' or env vars)",
+    "network failures in zipfile download"
+  ],
+  "recommended_rule_edits": [
+    {
+      "rationale": "Add alternatives for VCS and zip URLs to reach vcs.py and zipfile.py logic.",
+      "rule": "template_source"
+    },
+    {
+      "rationale": "Allow nested dictionary and list literals (e.g., using a generic json_value rule) so generate.py's dictionary/list merge paths are exercised.",
+      "rule": "extra_context_object"
+    },
+    {
+      "rationale": "Extend to accept nested structures and list values, mirroring the extra_context enhancements.",
+      "rule": "replay_value"
+    },
+    {
+      "rationale": "Add a successful hook variant that writes a file without raising, and a variant that raises a non\u2011SystemExit exception to explore different hook failure modes.",
+      "rule": "hook_script"
+    },
+    {
+      "rationale": "Introduce a rule raw_bool_string with values like \"Y\", \"yes\", \"No\", \" n \" to feed prompt conversion paths.",
+      "rule": "json_bool"
+    }
+  ],
+  "underexplored_scenario_families": [
+    "template_source via VCS or zip URL",
+    "extra_context/replay payloads that contain nested dictionaries or lists",
+    "boolean prompt answers that trigger yes/no conversion logic",
+    "overwrite_if_exists / skip_if_file_exists combinations that cause file\u2011collision handling",
+    "hooks that succeed (pre_gen_project / post_gen_project) and hooks that raise other exceptions"
+  ],
+  "unreachable_harness_limits": [
+    "Cannot simulate remote git/hg repositories without network access",
+    "Cannot create actual zip files on the fly for zipfile path handling"
+  ]
+}

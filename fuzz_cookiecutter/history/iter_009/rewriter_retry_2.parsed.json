@@ -1,0 +1,29 @@
+{
+  "rationale": "Add alternatives to exercise remote sources, nested context, list handling, varied newlines, copy_without_render patterns, partial hooks, and partial replay payloads",
+  "updates": [
+    {
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' \"project_name\" ':' '\"Overwritten Project\"' '}'\n    | '{' \"use_docker\" ':' '\"true\"' '}'\n    | '{' \"nested\" ':' '{' \"inner\" ':' '\"val\"' '}' '}'\n    | '{' \"license\" ':' '[' '\"MIT\"' ',' '\"GPL\"' ']' '}'\n    ;",
+      "rule": "extra_context_object"
+    },
+    {
+      "replacement": "template_source\n    : '\"local\"'\n    | '\"https://example.com/template.zip\"'\n    | '\"git+https://github.com/user/repo.git\"'\n    ;",
+      "rule": "template_source"
+    },
+    {
+      "replacement": "newline_value\n    : '\"\\\\n\"'\n    | '\"\\\\r\\\\n\"'\n    | '\"\\\\r\"'\n    | 'null'\n    ;",
+      "rule": "newline_value"
+    },
+    {
+      "replacement": "copy_without_render_array\n    : '[]'\n    | '[' '\"{{cookiecutter.repo_name}}/assets/*\"' ']'\n    | '[' '\"{{cookiecutter.repo_name}}/rendered/*.yml\"' ']'\n    | '[' '\"{{cookiecutter.repo_name}}/assets/*\"' ',' '\"{{cookiecutter.repo_name}}/binary/*.bin\"' ']'\n    ;",
+      "rule": "copy_without_render_array"
+    },
+    {
+      "replacement": "hooks_object\n    : '{' \"pre_prompt\" ':' hook_script ',' \"pre_gen_project\" ':' hook_script ',' \"post_gen_project\" ':' hook_script '}'\n    | '{' \"pre_prompt\" ':' 'null' ',' \"pre_gen_project\" ':' hook_script ',' \"post_gen_project\" ':' hook_script '}'\n    ;",
+      "rule": "hooks_object"
+    },
+    {
+      "replacement": "replay_value\n    : 'null'\n    | '{' \"cookiecutter\" ':' '{' \"project_name\" ':' '\"Replay Project\"' ',' \"repo_name\" ':' '\"replay_project\"' ',' \"use_docker\" ':' 'true' '}' '}'\n    | '{' \"cookiecutter\" ':' '{' \"project_name\" ':' '\"Partial Project\"' '}' '}'\n    ;",
+      "rule": "replay_value"
+    }
+  ]
+}

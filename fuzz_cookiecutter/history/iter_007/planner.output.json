@@ -1,0 +1,104 @@
+{
+  "analysis": "The current corpus heavily exercises the CLI/API mode selection and the pre_prompt hook failure, but most of the generate, prompt, zipfile, vcs and config logic remains untouched. Missing lines are in deep dictionary handling, choice parsing, path expansion, and VCS URL parsing. The grammar does not yet expose variations needed to trigger those branches (e.g., non‑boolean yes/no inputs, custom repo URLs, environment‑variable paths, nested dictionary overwrites, and replay payloads with missing keys).",
+  "overrepresented_responses": [
+    "mode = \"api\"",
+    "pre_prompt hook raising SystemExit",
+    "no_input = true"
+  ],
+  "underexplored_scenario_families": [
+    "no_input = false with replay payloads",
+    "hooks that succeed (pre_gen_project / post_gen_project)",
+    "overwrite_if_exists / skip_if_file_exists combinations",
+    "choice prompts receiving varied yes/no strings",
+    "binary vs text file handling with copy_without_render",
+    "nested template entries with different keys/paths",
+    "repo URLs that include a VCS scheme (git+https://...)"
+  ],
+  "reachable_by_grammar": [
+    "choice parsing in prompt.py (yes/no strings)",
+    "nested dictionary overwrites in generate.py",
+    "binary vs text file handling",
+    "copy_without_render patterns",
+    "replay payload structures",
+    "output_dir_state variations"
+  ],
+  "reachable_by_harness_only": [
+    "environment variable expansion in config.py",
+    "URL handling in zipfile.py and vcs.py (requires real filesystem or network paths)",
+    "exception paths that need a non‑existent input directory"
+  ],
+  "unreachable_harness_limits": [
+    "The harness currently only creates in‑memory manifests; it cannot simulate a real filesystem path containing '~' or $HOME expansions, nor can it host a remote zip URL or VCS repo.",
+    "Replay payloads that reference keys not present in the template require the template to be rendered, which the harness does not execute."
+  ],
+  "line_target_hints": [
+    {
+      "target": "cookiecutter/generate.py:72",
+      "delivery": "grammar",
+      "code_signal": "Assigning a new value to a variable inside a nested dictionary (overwrite flag)",
+      "required_inputs": "template.cookiecutter_json with a nested dict variable (e.g., a custom key) and invocation.extra_context providing that key with a different value; also set \"no_input\": false to allow context merging.",
+      "grammar_implication": "Add a new rule for extra_context_object that can include arbitrary key/value pairs (e.g., \"custom_key\": \"new_value\") and extend cookiecutter_json_object with a nested dict field (e.g., \"custom\": { \"sub\": \"val\" })."
+    },
+    {
+      "target": "cookiecutter/generate.py:76",
+      "delivery": "grammar",
+      "code_signal": "Handling list values inside a nested dictionary during context merging.",
+      "required_inputs": "extra_context_object containing a list for an existing key (e.g., \"license\": [\"MIT\", \"GPL\"]).",
+      "grammar_implication": "Allow extra_context_object to map keys to list literals; introduce a list_literal rule used inside extra_context_object."
+    },
+    {
+      "target": "cookiecutter/prompt.py:53",
+      "delivery": "grammar",
+      "code_signal": "Parsing yes/no choices after stripping and lower‑casing the input string.",
+      "required_inputs": "prompts_object with a boolean prompt (e.g., \"use_docker\") and extra_context providing a non‑standard yes/no string such as \"Y\" or \"nO\".",
+      "grammar_implication": "Extend extra_context_object to allow string values that are not strict \"true\"/\"false\" and add a rule for yes_no_string with alternatives like \"y\", \"Y\", \"yes\", \"n\", \"N\", \"no\"."
+    },
+    {
+      "target": "cookiecutter/zipfile.py:38",
+      "delivery": "harness",
+      "code_signal": "Path expansion of a user‑home shortcut.",
+      "required_inputs": "A manifest that sets a custom template_source path containing '~' (requires harness to write to a temporary directory and pass that path to the generator).",
+      "grammar_implication": "N/A – cannot be reached by grammar alone."
+    },
+    {
+      "target": "cookiecutter/vcs.py:41",
+      "delivery": "harness",
+      "code_signal": "Parsing a repo URL with a VCS scheme (e.g., \"git+https://example.com/repo.git\").",
+      "required_inputs": "template_source set to a remote URL string; the harness must invoke the VCS fetch routine.",
+      "grammar_implication": "N/A – requires external resource handling."
+    },
+    {
+      "target": "cookiecutter/config.py:38",
+      "delivery": "harness",
+      "code_signal": "Expansion of environment variables in a path.",
+      "required_inputs": "A template_source path containing \"$HOME\" or \"%USERPROFILE%\"; harness must set the env var.",
+      "grammar_implication": "N/A – path expansion is outside manifest grammar."
+    }
+  ],
+  "recommended_rule_edits": [
+    {
+      "rule": "extra_context_object",
+      "rationale": "Current rule only allows empty object or two single‑key objects. To hit nested dict and list handling in generate.py we need arbitrary key/value pairs, including strings, booleans, lists, and nested objects."
+    },
+    {
+      "rule": "extra_context_object",
+      "rationale": "Introduce a new alternative that permits a list literal (e.g., '[' '\"MIT\"' ',' '\"GPL\"' ']') as a value, enabling list‑merge branches."
+    },
+    {
+      "rule": "extra_context_object",
+      "rationale": "Add a yes_no_string rule and allow it as a value for boolean prompts, exercising the case‑insensitive yes/no parsing in prompt.py."
+    },
+    {
+      "rule": "hook_script",
+      "rationale": "Add a successful hook variant that writes a file without raising, to cover the success path of pre_gen_project and post_gen_project."
+    },
+    {
+      "rule": "json_bool",
+      "rationale": "Keep as is; but ensure both true and false are used in combination with overwrite_if_exists and skip_if_file_exists to explore all four permutations."
+    },
+    {
+      "rule": "nested_templates_value",
+      "rationale": "Add a third entry option (single entry) and allow empty objects for nested_key/path/title/description to hit deeper branches in generate.py handling of nested templates."
+    }
+  ]
+}

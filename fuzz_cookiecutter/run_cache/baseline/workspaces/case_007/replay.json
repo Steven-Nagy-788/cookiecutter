@@ -1,0 +1,7 @@
+{
+  "cookiecutter": {
+    "project_name": "Replay Project",
+    "repo_name": "replay_project",
+    "use_docker": true
+  }
+}

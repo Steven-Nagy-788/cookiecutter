@@ -1,0 +1,107 @@
+{
+  "analysis": "The current corpus heavily exercises the CLI/API mode selection and the pre_prompt hook failure, but almost never reaches the deeper generation logic (copy_without_render handling, newline handling, binary file rendering, and the dictionary\u2011variable overwrite path in generate.py). The missing lines are mostly in generate.py, prompt.py, zipfile.py, vcs.py and config.py, indicating that the harness never triggers URL\u2011based template fetching, VCS cloning, or the complex context\u2011merge branches. The grammar currently fixes many fields to static literals, limiting the ability to vary boolean flags, extra_context, replay payloads, and nested template structures that would drive those uncovered branches.",
+  "line_target_hints": [
+    {
+      "code_signal": "assigning overwrite value to a new dictionary variable during deep context merge",
+      "delivery": "grammar",
+      "grammar_implication": "Add alternatives to extra_context_object that include arbitrary key/value pairs (string literals) and allow extra_context to be a non\u2011empty dict with keys that exist in the template context.",
+      "required_inputs": "\"extra_context\" object containing a key that matches a nested variable name (e.g., {\"project_name\": \"NewName\"}) while no_input is false and replay is null",
+      "target": "cookiecutter/generate.py:72"
+    },
+    {
+      "code_signal": "handling list\u2011type context variables with in_dictionary_variable flag",
+      "delivery": "grammar",
+      "grammar_implication": "Introduce a new optional field in invocation_object (e.g., \"_in_dict_var\") that the harness interprets to set the internal flag, and expand extra_context_object to allow list literals.",
+      "required_inputs": "\"extra_context\" with a list value for a known list variable (e.g., {\"license\": [\"MIT\", \"GPL\"]}) and set in_dictionary_variable true via a new flag in the manifest (e.g., \"_in_dict_var\": true)",
+      "target": "cookiecutter/generate.py:76-78"
+    },
+    {
+      "code_signal": "conversion of user answer strings to bool for yes/no prompts",
+      "delivery": "grammar",
+      "grammar_implication": "Allow prompts_object to specify a \"type\": \"bool\" field and permit extra_context values that are plain strings (e.g., {\"use_docker\": \"yes\"}).",
+      "required_inputs": "A prompts_object that includes a yes/no question and a corresponding entry in extra_context (or replay) providing a string answer like \"yes\" or \"no\"",
+      "target": "cookiecutter/prompt.py:53-57"
+    },
+    {
+      "code_signal": "is_url flag true triggers path expansion and download logic",
+      "delivery": "harness",
+      "grammar_implication": "Replace the fixed rule template_source : '\"local\"' with an alternative that accepts a URL literal.",
+      "required_inputs": "template_source set to a URL string (e.g., \"https://example.com/template.zip\") instead of \"local\"",
+      "target": "cookiecutter/zipfile.py:38-42"
+    },
+    {
+      "code_signal": "repo_url split on '+' and handling of git/hg prefixes",
+      "delivery": "harness",
+      "grammar_implication": "Extend template_source to include a VCS URL literal alternative.",
+      "required_inputs": "template_source set to a VCS URL like \"git+https://github.com/user/repo.git\"",
+      "target": "cookiecutter/vcs.py:41-44"
+    },
+    {
+      "code_signal": "path expansion of environment variables and user home",
+      "delivery": "grammar",
+      "grammar_implication": "Allow string literals in relevant fields (e.g., output_dir_state) to contain tilde or $VAR patterns.",
+      "required_inputs": "Any path field (e.g., output_dir_state) containing \"~\" or \"$HOME\"",
+      "target": "cookiecutter/config.py:38-39"
+    }
+  ],
+  "overrepresented_responses": [
+    "\"mode\": \"api\"",
+    "\"no_input\": true",
+    "hook_script = null or raising SystemExit",
+    "default copy_without_render and new_lines values"
+  ],
+  "reachable_by_grammar": [
+    "execution_mode",
+    "template_source",
+    "template_object (root_name, cookiecutter_json, prompts, copy_without_render, new_lines, files, hooks, nested_templates)",
+    "invocation_object (no_input, extra_context, replay, json_bool flags, output_dir_state)",
+    "binary_contents, binary_path_expr, text_contents, hook_script"
+  ],
+  "reachable_by_harness_only": [
+    "is_url flag in zipfile handling (requires a remote URL in template_source)",
+    "repo_url parsing in vcs (requires a VCS URL in template_source)",
+    "environment variable expansion in config (requires path strings with $HOME or ~)",
+    "deep dictionary variable overwrite logic in generate.py (needs extra_context keys that map to existing context variables)",
+    "prompt._convert_to_bool branches (needs yes/no string answers in prompts)"
+  ],
+  "recommended_rule_edits": [
+    {
+      "rationale": "Add a URL alternative so zipfile and VCS branches can be exercised.",
+      "rule": "template_source"
+    },
+    {
+      "rationale": "Permit arbitrary key/value pairs and list literals to trigger deep context merge and list handling in generate.py.",
+      "rule": "extra_context_object"
+    },
+    {
+      "rationale": "Introduce an optional boolean flag (e.g., \"_in_dict_var\") that the harness can map to the internal in_dictionary_variable flag, enabling coverage of lines 76\u201178.",
+      "rule": "invocation_object"
+    },
+    {
+      "rationale": "Add a variant that includes a \"type\": \"bool\" entry and allow corresponding extra_context strings, so prompt._convert_to_bool is exercised.",
+      "rule": "prompts_object"
+    },
+    {
+      "rationale": "Add a successful hook variant that writes a file (already present) but also a variant that returns a non\u2011exception string, to diversify hook outcomes.",
+      "rule": "hook_script"
+    },
+    {
+      "rationale": "Allow three or more nested_template_entry items to increase nested\u2011template handling depth.",
+      "rule": "nested_templates_value"
+    }
+  ],
+  "underexplored_scenario_families": [
+    "no_input = false with non\u2011empty extra_context and replay payloads",
+    "overwrite_if_exists / skip_if_file_exists combinations",
+    "hooks that succeed (pre_gen_project / post_gen_project) and that write files",
+    "binary file entries with custom binary_path_expr and contents",
+    "nested_templates with more than two entries and varied keys/paths",
+    "choice_array variations and missing license entries",
+    "prompt conversion of yes/no strings (triggering prompt._convert_to_bool)",
+    "zipfile download path (is_url true) and VCS repo_url parsing"
+  ],
+  "unreachable_harness_limits": [
+    "The harness currently only supplies a local template source; it cannot produce a URL for zipfile or a VCS URL, so those branches stay uncovered.",
+    "Prompt answers are not simulated; the harness does not feed user input, so the yes/no conversion path is never taken."
+  ]
+}

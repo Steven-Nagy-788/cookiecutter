@@ -1,0 +1,96 @@
+{
+  "analysis": "The current corpus heavily exercises the CLI/API mode selection and hook failures, but most branches in generate.py (variable overwriting), prompt.py (choice parsing), zipfile.py (URL handling), vcs.py (repo URL parsing) and config.py (path expansion) remain untouched. The grammar does not yet provide ways to trigger deep dictionary variable overwrites, boolean choice handling, URL\u2011based template sources, or VCS\u2011style repo URLs, all of which are required to hit the missing lines.",
+  "line_target_hints": [
+    {
+      "code_signal": "assignment to context[variable] when overwriting a dictionary variable",
+      "delivery": "grammar",
+      "grammar_implication": "Add a rule allowing extra_context_object to contain nested dictionaries and to reference existing keys, e.g., '{ \"feature_flags\": { \"docs\": false } }'",
+      "required_inputs": "template_object.cookiecutter_json containing a nested dict variable (e.g., \"feature_flags\": {\"docs\": true}) and extra_context_object providing a different value for the same key to trigger overwrite",
+      "target": "cookiecutter/generate.py:72"
+    },
+    {
+      "code_signal": "handling of list values inside a dictionary variable during overwrite",
+      "delivery": "grammar",
+      "grammar_implication": "Extend extra_context_object to allow list literals similar to choice_array.",
+      "required_inputs": "extra_context_object with a list for a key that already exists as a list in cookiecutter_json (e.g., \"license\": [\"MIT\"]).",
+      "target": "cookiecutter/generate.py:76-78"
+    },
+    {
+      "code_signal": "conversion of user input strings to boolean via yes/no choice lists",
+      "delivery": "grammar",
+      "grammar_implication": "Allow extra_context_object values to be raw strings (e.g., \"yes\", \"no\") instead of only quoted literals.",
+      "required_inputs": "invocation_object.no_input = false and prompts_object containing a boolean prompt, then extra_context_object providing values like \"yes\", \"no\", \"y\", \"n\".",
+      "target": "cookiecutter/prompt.py:53-57"
+    },
+    {
+      "code_signal": "Path expansion and existence check for clone_to_dir when downloading a remote zipfile",
+      "delivery": "harness",
+      "grammar_implication": "Introduce a new alternative in template_source rule: '\"https://example.com/template.zip\"' (or a generic URL token).",
+      "required_inputs": "template_source set to a remote URL (e.g., \"https://example.com/template.zip\") and a temporary directory path supplied by the harness.",
+      "target": "cookiecutter/zipfile.py:38-42"
+    },
+    {
+      "code_signal": "splitting repo_url on '+' and handling git/hg prefixes",
+      "delivery": "harness",
+      "grammar_implication": "Add a URL token rule for template_source that can include a '+' and a VCS scheme.",
+      "required_inputs": "template_source using a VCS URL like \"git+https://github.com/user/repo.git\".",
+      "target": "cookiecutter/vcs.py:41-45"
+    },
+    {
+      "code_signal": "os.path.expandvars and expanduser on a path string",
+      "delivery": "harness",
+      "grammar_implication": "Allow path_expr to include '~' or '${HOME}' patterns.",
+      "required_inputs": "Any path field (e.g., output_dir_state) containing environment variables like \"$HOME/project\" or a tilde \"~/project\".",
+      "target": "cookiecutter/config.py:38-39"
+    }
+  ],
+  "overrepresented_responses": [
+    "mode=cli/api selection",
+    "hook_script success/failure",
+    "extra_context simple overrides"
+  ],
+  "reachable_by_grammar": [
+    "remote template_source URL",
+    "extra_context with nested dicts to force generate.py overwrites",
+    "choice_array values that include yes/no strings",
+    "output_dir_state variations combined with json_bool flags"
+  ],
+  "reachable_by_harness_only": [
+    "environment variable expansion in config paths (requires harness to set env vars)",
+    "filesystem state manipulation (pre\u2011existing files to test skip_if_file_exists)",
+    "network fetch simulation for zipfile URL handling"
+  ],
+  "recommended_rule_edits": [
+    {
+      "rationale": "Add a URL alternative to enable remote template fetching, which will exercise zipfile and vcs code paths.",
+      "rule": "template_source"
+    },
+    {
+      "rationale": "Broaden to accept nested objects and list literals, allowing dictionary and list overwrites needed for generate.py branches.",
+      "rule": "extra_context_object"
+    },
+    {
+      "rationale": "Permit raw string values (e.g., \"yes\", \"no\") so prompt boolean conversion logic is triggered.",
+      "rule": "extra_context_object"
+    },
+    {
+      "rationale": "Include patterns with '~' and '${...}' to trigger config path expansion.",
+      "rule": "path_expr"
+    },
+    {
+      "rationale": "Add a malformed base64 string to provoke decode errors in generate.py (covers error handling branches).",
+      "rule": "binary_contents"
+    }
+  ],
+  "underexplored_scenario_families": [
+    "template_source as a remote URL (git/hg) to hit vcs and zipfile logic",
+    "prompt handling of yes/no choices and default values",
+    "generate.py dictionary variable overwriting with nested structures",
+    "output_dir_state collisions with overwrite_if_exists / skip_if_file_exists combos",
+    "config path expansion via environment variables and user home shortcuts"
+  ],
+  "unreachable_harness_limits": [
+    "Cannot simulate a VCS repo without a real URL or mock; harness would need to stub network calls",
+    "Path expansion tests need external env var injection which the grammar cannot express"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "rationale": "Add URL sources, richer extra_context/replay, successful and varied hooks, and raw boolean strings to hit uncovered code paths.",
+  "updates": [
+    {
+      "replacement": "template_source\n    : '\"local\"'\n    | '\"git+https://example.com/repo.git\"'\n    | '\"hg+https://example.com/repo.hg\"'\n    | '\"https://example.com/template.zip\"'\n    ;",
+      "rule": "template_source"
+    },
+    {
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' \"project_name\" ':' '\"Overwritten Project\"' '}'\n    | '{' \"use_docker\" ':' '\"true\"' '}'\n    | '{' \"new_section\" ':' json_object '}'\n    | '{' \"features\" ':' list_literal '}'\n    ;",
+      "rule": "extra_context_object"
+    },
+    {
+      "replacement": "replay_value\n    : 'null'\n    | '{' \"cookiecutter\" ':' '{'\n         \"project_name\" ':' '\"Replay Project\"' ','\n         \"repo_name\" ':' '\"replay_project\"' ','\n         \"use_docker\" ':' 'true'\n       '}' '}'\n    | '{' \"cookiecutter\" ':' json_object '}'\n    ;",
+      "rule": "replay_value"
+    },
+    {
+      "replacement": "hook_script\n    : 'null'\n    | '\"from pathlib import Path\\\\nPath(\\'HOOK_OK\\').write_text(\\'ok\\', encoding=\\'utf-8\\')\\\\n\"'\n    | '\"raise SystemExit(1)\\\\n\"'\n    | '\"raise RuntimeError(\\'hook failed\\')\\\\n\"'\n    ;",
+      "rule": "hook_script"
+    },
+    {
+      "replacement": "json_bool\n    : 'true'\n    | 'false'\n    ;\n\nraw_bool_string\n    : '\"Y\"'\n    | '\"yes\"'\n    | '\"N\"'\n    | '\"no\"'\n    | '\" y \"'\n    | '\" n \"'\n    ;",
+      "rule": "json_bool"
+    }
+  ]
+}

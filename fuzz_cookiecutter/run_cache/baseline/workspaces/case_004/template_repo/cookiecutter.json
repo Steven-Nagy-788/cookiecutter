@@ -1,0 +1,18 @@
+{
+  "project_name": "Example Project",
+  "repo_name": "{{ cookiecutter.project_name }}_pkg",
+  "use_docker": true,
+  "license": [
+    "MIT",
+    "GPL",
+    "Apache"
+  ],
+  "database": {
+    "engine": "postgres",
+    "port": "5432"
+  },
+  "__prompts__": {
+    "project_name": "Name of the generated package",
+    "owner": "Owner metadata"
+  }
+}

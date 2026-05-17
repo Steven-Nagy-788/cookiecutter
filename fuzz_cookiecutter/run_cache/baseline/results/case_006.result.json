@@ -1,0 +1,17 @@
+{
+  "case_id": "case_006",
+  "details": {},
+  "duration_ms": 121,
+  "exception_message": null,
+  "exception_type": null,
+  "execution_mode": "api",
+  "exit_code": 0,
+  "file_count_created": 3,
+  "generated_project_path": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\workspaces\\case_006\\output\\broken value",
+  "hook_phase_reached": "render_file",
+  "manifest_path": "D:\\VnV\\project\\cookiecutter\\fuzz_cookiecutter\\run_cache\\baseline\\cases\\case_6.json",
+  "materialization_status": "OK",
+  "status": "SUCCESS",
+  "stderr_excerpt": "",
+  "stdout_excerpt": ""
+}

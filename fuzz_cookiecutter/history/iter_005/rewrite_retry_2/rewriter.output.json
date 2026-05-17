@@ -1,0 +1,29 @@
+{
+  "rationale": "Add variability to key grammar rules to expose uncovered code paths.",
+  "updates": [
+    {
+      "rule": "template_source",
+      "replacement": "template_source\n    : '\"local\"'\n    | URL_LITERAL\n    ;"
+    },
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' '\\\"project_name\\\"' ':' STRING_LITERAL ',' '\\\"repo_name\\\"' ':' STRING_LITERAL '}'\n    | '{' '\\\"use_docker\\\"' ':' STRING_LITERAL ',' '\\\"license\\\"' ':' LIST_LITERAL '}'\n    ;"
+    },
+    {
+      "rule": "invocation_object",
+      "replacement": "invocation_object\n    : '{'\n      '\\\"no_input\\\"' ':' 'true' ','\n      '\\\"extra_context\\\"' ':' extra_context_object ','\n      '\\\"replay\\\"' ':' 'null' ','\n      '\\\"overwrite_if_exists\\\"' ':' json_bool ','\n      '\\\"skip_if_file_exists\\\"' ':' json_bool ','\n      '\\\"accept_hooks\\\"' ':' json_bool ','\n      '\\\"keep_project_on_failure\\\"' ':' json_bool ','\n      '\\\"output_dir_state\\\"' ':' output_dir_state ','\n      '\\\"_in_dict_var\\\"' ':' json_bool\n      '}'\n    | '{'\n      '\\\"no_input\\\"' ':' 'false' ','\n      '\\\"extra_context\\\"' ':' '{}' ','\n      '\\\"replay\\\"' ':' replay_value ','\n      '\\\"overwrite_if_exists\\\"' ':' json_bool ','\n      '\\\"skip_if_file_exists\\\"' ':' json_bool ','\n      '\\\"accept_hooks\\\"' ':' json_bool ','\n      '\\\"keep_project_on_failure\\\"' ':' json_bool ','\n      '\\\"output_dir_state\\\"' ':' output_dir_state ','\n      '\\\"_in_dict_var\\\"' ':' json_bool\n      '}'\n    ;"
+    },
+    {
+      "rule": "prompts_object",
+      "replacement": "prompts_object\n    : '{}'\n    | '{'\n      '\\\"project_name\\\"' ':' STRING_LITERAL ','\n      '\\\"use_docker\\\"' ':' STRING_LITERAL ','\n      '\\\"license\\\"' ':' STRING_LITERAL ','\n      '\\\"database\\\"' ':' STRING_LITERAL ','\n      '\\\"type\\\"' ':' '\\\"bool\\\"'\n      '}'\n    | '{'\n      '\\\"project_name\\\"' ':' STRING_LITERAL ','\n      '\\\"owner\\\"' ':' STRING_LITERAL ','\n      '\\\"type\\\"' ':' '\\\"bool\\\"'\n      '}'\n    ;"
+    },
+    {
+      "rule": "hook_script",
+      "replacement": "hook_script\n    : 'null'\n    | STRING_LITERAL\n    | '\"from pathlib import Path\\\\nPath(\\'HOOK_OK\\').write_text(\\'ok\\', encoding=\\'utf-8\\')\\\\n\"'\n    | '\"raise SystemExit(1)\\\\n\"'\n    ;"
+    },
+    {
+      "rule": "nested_templates_value",
+      "replacement": "nested_templates_value\n    : 'null'\n    | '[' nested_template_entry ',' nested_template_entry ']'\n    | '[' nested_template_entry ',' nested_template_entry ',' nested_template_entry ']'\n    ;"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "rationale": "Broaden context and source handling to hit deep dict, list, and remote template paths",
+  "updates": [
+    {
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' extra_context_pair (',' extra_context_pair)* '}'\n    ;",
+      "rule": "extra_context_object"
+    },
+    {
+      "replacement": "extra_context_pair\n    : STRING ':' extra_context_value\n    ;",
+      "rule": "extra_context_pair"
+    },
+    {
+      "replacement": "extra_context_value\n    : STRING\n    | json_bool\n    | list_literal\n    | nested_json_object\n    ;",
+      "rule": "extra_context_value"
+    },
+    {
+      "replacement": "list_literal\n    : '[' (extra_context_value (',' extra_context_value)*)? ']'\n    ;",
+      "rule": "list_literal"
+    },
+    {
+      "replacement": "nested_json_object\n    : '{' (STRING ':' extra_context_value (',' STRING ':' extra_context_value)*)? '}'\n    ;",
+      "rule": "nested_json_object"
+    },
+    {
+      "replacement": "template_source\n    : '\"local\"'\n    | STRING   // remote URL, e.g., \"git+https://example.com/repo.git\"\n    ;",
+      "rule": "template_source"
+    },
+    {
+      "replacement": "prompts_object\n    : '{}'\n    | '{' prompt_entry (',' prompt_entry)* '}'\n    ;\n\nprompt_entry\n    : STRING ':' STRING\n    | STRING ':' '[' STRING (',' STRING)* ']'\n    | STRING ':' confirm_prompt\n    ;\n\nconfirm_prompt\n    : '\"[yes/no]\"'\n    ;",
+      "rule": "prompts_object"
+    }
+  ]
+}

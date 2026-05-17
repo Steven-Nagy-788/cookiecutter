@@ -1,0 +1,9 @@
+{
+  "templates": {
+    "core": {
+      "path": "nested_core",
+      "title": "Service Template",
+      "description": "Minimal local template"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "analysis": "The current corpus heavily exercises the CLI/API mode selection and the replay/no_input branches, but many internal paths remain untouched: handling of dictionary variable overwrites in generate.py, boolean conversion in prompt.py, zipfile extraction, VCS cloning, and config path expansion. Most failures are NonTemplatedInputDirException, indicating the template source is always \"local\" and never triggers remote‑repo handling. Hooks are only exercised for success/failure, but not for missing hook scripts. The grammar already covers many literals but lacks ways to provoke the missing lines (e.g., providing extra_context that creates nested dictionary variables, using copy_without_render with binary files, varying new_lines, and forcing zipfile/VCS paths).",
+  "overrepresented_responses": [
+    "mode=api",
+    "mode=cli",
+    "no_input=true",
+    "no_input=false with empty extra_context",
+    "hooks=pre_prompt success/failure"
+  ],
+  "underexplored_scenario_families": [
+    "remote template source (git/hg URL) to hit vcs.py and zipfile.py",
+    "extra_context that creates nested dictionary variables causing generate.py overwrite logic",
+    "boolean prompt conversion (yes/no choices) to hit prompt.py lines 53‑58",
+    "config path expansion with environment variables and user home shortcuts",
+    "copy_without_render with binary files and new_lines variations",
+    "output_dir_state collisions with overwrite_if_exists / skip_if_file_exists combos"
+  ],
+  "reachable_by_grammar": [
+    "extra_context_object (add nested dict entries)",
+    "copy_without_render_array (add more patterns)",
+    "newline_value (add other escape sequences)",
+    "json_bool (already present)",
+    "hooks_object (add null or script variants)",
+    "output_dir_state (already present)",
+    "replay_value (extend with partial dicts)",
+    "choice_array (add more licenses)",
+    "path_expr / binary_path_expr (add deeper templated paths)"
+  ],
+  "reachable_by_harness_only": [
+    "template_source = remote URL (requires harness to supply a git/hg repo)",
+    "environment variable expansion in config paths (needs harness to set env vars)",
+    "zipfile extraction of a remote archive (requires harness to host a zip)",
+    "VCS cloning logic (needs harness to provide a repo URL)",
+    "prompt boolean conversion (needs harness to feed interactive answers)"
+  ],
+  "unreachable_harness_limits": [
+    "The harness cannot simulate interactive stdin for prompt conversion without modifying the grammar to embed answer strings.",
+    "Remote repository fetching cannot be forced purely by grammar; the harness must host a repo or mock network calls."
+  ],
+  "line_target_hints": [
+    {
+      "target": "cookiecutter/generate.py:72",
+      "delivery": "grammar",
+      "code_signal": "assigning a new variable in a nested dictionary when in_dictionary_variable is true",
+      "required_inputs": "extra_context_object must contain a nested dict like {\"nested\": {\"var\": \"value\"}} and invocation.no_input must be false so the generator walks the context merging logic",
+      "grammar_implication": "Add a new alternative to extra_context_object that yields a nested dictionary with at least two levels, e.g., '{ \"nested\": { \"inner\": \"val\" } }'"
+    },
+    {
+      "target": "cookiecutter/generate.py:76",
+      "delivery": "grammar",
+      "code_signal": "handling list values inside a dictionary variable during context merging",
+      "required_inputs": "extra_context_object must provide a list under a key that already exists in the template context (e.g., \"license\": [\"MIT\", \"GPL\"]). Also set overwrite_if_exists true to force the branch.",
+      "grammar_implication": "Extend extra_context_object with a case that includes a list literal, e.g., '{ \"license\": [\"MIT\", \"GPL\"] }'"
+    },
+    {
+      "target": "cookiecutter/prompt.py:53",
+      "delivery": "harness",
+      "code_signal": "value.strip().lower() and membership checks in yes_choices/no_choices",
+      "required_inputs": "During a prompt, supply answer strings such as \"YES\", \"y\", \"No\", \"n\" via the harness's simulated stdin or by setting no_input=false and providing a replay payload that contains these strings.",
+      "grammar_implication": "N/A – requires harness to feed prompt answers; alternatively, embed a replay_value that contains pre‑filled answers matching yes/no choices."
+    },
+    {
+      "target": "cookiecutter/zipfile.py:38",
+      "delivery": "harness",
+      "code_signal": "Path expansion of clone_to_dir for a remote zip download",
+      "~required_inputs": "template_source must be a remote URL (e.g., \"https://example.com/template.zip\") and the harness must provide a reachable zip file; output_dir_state can be \"missing\" to trigger extraction.",
+      "grammar_implication": "Introduce a new rule template_source_remote that allows a string literal matching a URL; mark it as editable."
+    },
+    {
+      "target": "cookiecutter/vcs.py:41",
+      "delivery": "harness",
+      "code_signal": "splitting repo_url on '+' and handling git/hg types",
+      "required_inputs": "template_source set to a VCS URL like \"git+https://github.com/user/repo.git\"; harness must mock or provide the repo.",
+      "grammar_implication": "Add an alternative to template_source that matches a VCS URL pattern."
+    },
+    {
+      "target": "cookiecutter/config.py:38",
+      "delivery": "harness",
+      "code_signal": "os.path.expandvars and expanduser on a path string",
+      "required_inputs": "Provide a path containing environment variables (e.g., \"${HOME}/.cookiecutter\") and set an env var in the harness; also test a tilde path \"~/template\".",
+      "grammar_implication": "Add a rule for template_source that can be a path string with ${VAR} or ~, or let harness inject such a string directly."
+    }
+  ],
+  "recommended_rule_edits": [
+    {
+      "rule": "extra_context_object",
+      "rationale": "Add nested dictionary and list alternatives to trigger generate.py overwrite and list handling branches."
+    },
+    {
+      "rule": "template_source",
+      "rationale": "Introduce a remote URL alternative (e.g., \"https://example.com/template.zip\") and a VCS URL alternative (e.g., \"git+https://github.com/user/repo.git\") to reach zipfile.py and vcs.py."
+    },
+    {
+      "rule": "newline_value",
+      "rationale": "Add a Windows‑style CRLF literal \"\\r\\n\" already present, but also include \"\\r\" to vary line‑ending handling."
+    },
+    {
+      "rule": "copy_without_render_array",
+      "rationale": "Add a case with multiple glob patterns and a mix of binary and text paths to exercise binary handling and copy_without_render logic."
+    },
+    {
+      "rule": "hooks_object",
+      "rationale": "Add a variant where one of the hook scripts is null while others are valid, to test partial hook presence."
+    },
+    {
+      "rule": "replay_value",
+      "rationale": "Add a replay payload that omits some keys (e.g., only \"project_name\") to test partial replay handling."
+    }
+  ]
+}

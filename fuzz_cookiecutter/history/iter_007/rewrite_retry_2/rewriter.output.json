@@ -1,0 +1,21 @@
+{
+  "rationale": "Add flexibility to extra_context, yes/no strings, list literals, successful hooks, and richer nested template entries.",
+  "updates": [
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' extra_context_pair (',' extra_context_pair)* '}'\n    ;\n\nextra_context_pair\n    : STRING ':' extra_context_value\n    ;\n\nextra_context_value\n    : STRING               // generic string value\n    | json_bool            // true/false\n    | list_literal         // list of strings\n    | object_literal       // nested object\n    ;\n\nlist_literal\n    : '[' STRING (',' STRING)* ']'\n    ;\n\nobject_literal\n    : '{' extra_context_pair (',' extra_context_pair)* '}'\n    ;"
+    },
+    {
+      "rule": "yes_no_string",
+      "replacement": "yes_no_string\n    : '\"y\"' | '\"Y\"' | '\"yes\"' | '\"YES\"' | '\"n\"' | '\"N\"' | '\"no\"' | '\"NO\"'\n    ;"
+    },
+    {
+      "rule": "hook_script",
+      "replacement": "hook_script\n    : 'null'\n    | '\"from pathlib import Path\\\\nPath(\\'HOOK_OK\\').write_text(\\'ok\\', encoding=\\'utf-8\\')\\\\n\"'\n    | '\"raise SystemExit(1)\\\\n\"'\n    ;"
+    },
+    {
+      "rule": "nested_templates_value",
+      "replacement": "nested_templates_value\n    : 'null'\n    | '[' nested_template_entry (',' nested_template_entry)* ']'\n    ;\n\nnested_template_entry\n    : '{'\n      '\"key\"' ':' nested_key ','\n      '\"path\"' ':' nested_path ','\n      '\"title\"' ':' nested_title ','\n      '\"description\"' ':' nested_description\n      '}'\n    ;\n\nnested_key\n    : STRING // allow any string, not just fixed literals\n    ;\n\nnested_path\n    : STRING // allow any string\n    ;\n\nnested_title\n    : STRING // allow any string\n    ;\n\nnested_description\n    : STRING // allow any string\n    ;"
+    }
+  ]
+}

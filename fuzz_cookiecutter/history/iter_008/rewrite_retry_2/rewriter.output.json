@@ -1,0 +1,21 @@
+{
+  "rationale": "Add remote URL source, richer extra_context, path expansion patterns, and malformed binary data to hit uncovered code paths.",
+  "updates": [
+    {
+      "rule": "template_source",
+      "replacement": "template_source\n    : '\"local\"'\n    | '\"https://example.com/template.zip\"'\n    | '\"git+https://github.com/user/repo.git\"'\n    ;"
+    },
+    {
+      "rule": "extra_context_object",
+      "replacement": "extra_context_object\n    : '{}'\n    | '{' \"\\\"project_name\\\"\" ':' '\"Overwritten Project\"' '}'\n    | '{' \"\\\"use_docker\\\"\" ':' '\"true\"' '}'\n    | '{' \"\\\"feature_flags\\\"\" ':' '{' \"\\\"docs\\\"\" ':' json_bool ',' \"\\\"ci\\\"\" ':' json_bool '}' '}'\n    | '{' \"\\\"license\\\"\" ':' '[' '\"MIT\"' ',' '\"GPL\"' ']' '}'\n    | '{' \"\\\"use_docker\\\"\" ':' '\"yes\"' '}'\n    ;"
+    },
+    {
+      "rule": "path_expr",
+      "replacement": "path_expr\n    : '\"README.md\"'\n    | '\"docs/guide.md\"'\n    | '\"rendered/config.yml\"'\n    | '\"{{cookiecutter.repo_name}}/README.md\"'\n    | '\"{{cookiecutter.repo_name}}/pyproject.toml\"'\n    | '\"{{cookiecutter.repo_name}}/src/{{cookiecutter.repo_name}}/__init__.py\"'\n    | '\"{{cookiecutter.repo_name}}/templates/report.txt\"'\n    | '\"~/project/README.md\"'\n    | '\"${HOME}/project/README.md\"'\n    ;"
+    },
+    {
+      "rule": "binary_contents",
+      "replacement": "binary_contents\n    : '\"AAECAwQ=\"'\n    | '\"c29tZS1iaW5hcnktYnl0ZXM=\"'\n    | '\"@@@invalid@@@\"'\n    ;"
+    }
+  ]
+}
