@@ -1,0 +1,17 @@
+{
+  "project_name": "Cookie Lab",
+  "repo_name": "{{ cookiecutter.project_name }}_pkg",
+  "use_docker": true,
+  "license": [
+    "BSD",
+    "MIT"
+  ],
+  "database": {
+    "engine": "sqlite",
+    "port": "5432"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/rendered/*.yml"
+  ],
+  "_new_lines": "\n"
+}

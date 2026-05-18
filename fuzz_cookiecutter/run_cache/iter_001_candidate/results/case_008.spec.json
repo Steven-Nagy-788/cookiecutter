@@ -1,0 +1,24 @@
+{
+  "case_id": "case_008",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/cases/case_8.json",
+  "workspace_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_008",
+  "template_repo_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_008/template_repo",
+  "output_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_008/output",
+  "predicted_project_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_008/output/Cookie Lab_pkg",
+  "mode": "cli",
+  "template_source": "local",
+  "invocation": {
+    "no_input": false,
+    "extra_context": {},
+    "replay": null,
+    "overwrite_if_exists": false,
+    "skip_if_file_exists": true,
+    "accept_hooks": true,
+    "keep_project_on_failure": false,
+    "output_dir_state": "project_exists"
+  },
+  "replay_file": null,
+  "notes": {
+    "cwd": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter"
+  }
+}

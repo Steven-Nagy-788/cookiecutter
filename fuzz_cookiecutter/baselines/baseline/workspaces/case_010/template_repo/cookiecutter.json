@@ -1,0 +1,23 @@
+{
+  "project_name": "Replay Project",
+  "repo_name": "{{ cookiecutter.project_name }}_pkg",
+  "use_docker": true,
+  "license": [
+    "MIT",
+    "GPL",
+    "Apache"
+  ],
+  "database": {
+    "engine": "postgres",
+    "port": "5432"
+  },
+  "__prompts__": {
+    "project_name": "Project name?",
+    "use_docker": "Use Docker?",
+    "license": "Choose a license",
+    "database": "Database settings"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/rendered/*.yml"
+  ]
+}

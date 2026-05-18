@@ -1,0 +1,20 @@
+{
+  "project_name": "Replay Project",
+  "repo_name": "{{ cookiecutter.project_name|lower }}",
+  "feature_flags": {
+    "docs": false,
+    "ci": false
+  },
+  "owner": {
+    "team": "platform",
+    "email": "team@example.com"
+  },
+  "__prompts__": {
+    "project_name": "Name of the generated package",
+    "owner": "Owner metadata"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/assets/*"
+  ],
+  "_new_lines": "\n"
+}

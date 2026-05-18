@@ -1,0 +1,1 @@
+tests/fake-repo-tmpl/ --no-input project_short_description=Expanded_fuzzing github_username=fuzz_user full_name=Fuzz_User repo_name=fuzz-project full_name=Fuzz_User project_name=Fuzz_Project

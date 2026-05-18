@@ -1,0 +1,20 @@
+{
+  "project_name": "Cookie Lab",
+  "repo_name": "{{ cookiecutter.project_name }}_pkg",
+  "use_docker": true,
+  "license": [
+    "BSD",
+    "MIT"
+  ],
+  "database": {
+    "engine": "sqlite",
+    "port": "5432"
+  },
+  "__prompts__": {
+    "project_name": "Project name?",
+    "use_docker": "Use Docker?",
+    "license": "Choose a license",
+    "database": "Database settings"
+  },
+  "_new_lines": "\r\n"
+}

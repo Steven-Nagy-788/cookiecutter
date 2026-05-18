@@ -1,0 +1,21 @@
+{
+  "project_name": "Example Project",
+  "repo_name": "{{ cookiecutter.project_name|lower }}",
+  "use_docker": true,
+  "license": [
+    "MIT",
+    "GPL",
+    "Apache"
+  ],
+  "database": {
+    "engine": "sqlite",
+    "port": "5432"
+  },
+  "__prompts__": {
+    "project_name": "Name of the generated package",
+    "owner": "Owner metadata"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/assets/*"
+  ]
+}

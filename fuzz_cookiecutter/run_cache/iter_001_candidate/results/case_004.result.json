@@ -1,0 +1,17 @@
+{
+  "case_id": "case_004",
+  "details": {},
+  "duration_ms": 295,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 1,
+  "generated_project_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_004/output/Example Project_pkg",
+  "hook_phase_reached": "render_file",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/cases/case_4.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Unable to create file 'docs/guide.md'\nError message: 'collections.OrderedDict object' has no attribute 'missing_value'\nContext: {\n    \"_cookiecutter\": {\n        \"feature_flags\": {\n            \"ci\": true,\n            \"docs\": true\n        },\n        \"owner\": {\n            \"email\": \"team@example.com\",\n            \"team\": \"platform\"\n        },\n        \"project_name\": \"Overwritten Project\",\n        \"repo_name\": \"{{ cookiecutter.project_name }}_pkg\"\n    },\n    \"cookiecutter\": {\n        \"_checkout\": null,\n        \"_copy_without_render\": [\n            \"{{cookiecutter.repo_name}}/rendered/*.yml\"\n        ],\n        \"_new_lines\": \"\\n\",\n        \"_output_dir\": \"/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_004/output\",\n        \"_repo_dir\": \"/medi"
+}

@@ -1,0 +1,24 @@
+{
+  "case_id": "case_001",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_1.json",
+  "workspace_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_001",
+  "template_repo_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_001/template_repo",
+  "output_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_001/output",
+  "predicted_project_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_001/output/replay project",
+  "mode": "api",
+  "template_source": "local",
+  "invocation": {
+    "no_input": false,
+    "extra_context": {},
+    "replay": null,
+    "overwrite_if_exists": true,
+    "skip_if_file_exists": true,
+    "accept_hooks": false,
+    "keep_project_on_failure": true,
+    "output_dir_state": "existing_empty"
+  },
+  "replay_file": null,
+  "notes": {
+    "cwd": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter"
+  }
+}

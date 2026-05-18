@@ -1,0 +1,22 @@
+{
+  "project_name": "Broken Value",
+  "repo_name": "{{ cookiecutter.project_name }}_pkg",
+  "use_docker": false,
+  "license": [
+    "BSD",
+    "MIT"
+  ],
+  "database": {
+    "engine": "sqlite",
+    "port": "5432"
+  },
+  "__prompts__": {
+    "project_name": "Project name?",
+    "use_docker": "Use Docker?",
+    "license": "Choose a license",
+    "database": "Database settings"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/rendered/*.yml"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "case_id": "case_003",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_3.json",
+  "workspace_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_003",
+  "template_repo_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_003/template_repo",
+  "output_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_003/output",
+  "predicted_project_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_003/output/Replay Project",
+  "mode": "api",
+  "template_source": "local",
+  "invocation": {
+    "no_input": false,
+    "extra_context": {},
+    "replay": {
+      "cookiecutter": {
+        "project_name": "Replay Project",
+        "repo_name": "replay_project",
+        "use_docker": true
+      }
+    },
+    "overwrite_if_exists": true,
+    "skip_if_file_exists": true,
+    "accept_hooks": false,
+    "keep_project_on_failure": false,
+    "output_dir_state": "existing_empty"
+  },
+  "replay_file": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_003/replay.json",
+  "notes": {
+    "cwd": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter"
+  }
+}

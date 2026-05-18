@@ -1,0 +1,19 @@
+{
+  "case_id": "case_006",
+  "details": {
+    "exception_repr": "OutputDirExistsException('Error: \"/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_006/output/Cookie Lab\" directory already exists')"
+  },
+  "duration_ms": 575,
+  "exception_message": "Error: \"/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_006/output/Cookie Lab\" directory already exists",
+  "exception_type": "OutputDirExistsException",
+  "execution_mode": "api",
+  "exit_code": 1,
+  "file_count_created": 1,
+  "generated_project_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_006/output/Cookie Lab",
+  "hook_phase_reached": "render_path",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_6.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": ""
+}

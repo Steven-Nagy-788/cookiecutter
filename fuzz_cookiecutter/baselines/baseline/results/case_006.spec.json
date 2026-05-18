@@ -1,0 +1,26 @@
+{
+  "case_id": "case_006",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_6.json",
+  "workspace_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_006",
+  "template_repo_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_006/template_repo",
+  "output_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_006/output",
+  "predicted_project_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_006/output/Cookie Lab",
+  "mode": "api",
+  "template_source": "local",
+  "invocation": {
+    "no_input": true,
+    "extra_context": {
+      "use_docker": "true"
+    },
+    "replay": null,
+    "overwrite_if_exists": false,
+    "skip_if_file_exists": false,
+    "accept_hooks": false,
+    "keep_project_on_failure": false,
+    "output_dir_state": "project_exists"
+  },
+  "replay_file": null,
+  "notes": {
+    "cwd": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter"
+  }
+}

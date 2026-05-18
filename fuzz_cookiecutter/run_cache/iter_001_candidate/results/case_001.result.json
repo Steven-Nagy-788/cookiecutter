@@ -1,0 +1,19 @@
+{
+  "case_id": "case_001",
+  "details": {
+    "exception_repr": "NonTemplatedInputDirException()"
+  },
+  "duration_ms": 261,
+  "exception_message": "",
+  "exception_type": "NonTemplatedInputDirException",
+  "execution_mode": "api",
+  "exit_code": 1,
+  "file_count_created": 1,
+  "generated_project_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_001/output/example project",
+  "hook_phase_reached": "generate_files",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/cases/case_1.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": ""
+}

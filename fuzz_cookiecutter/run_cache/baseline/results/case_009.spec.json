@@ -1,0 +1,26 @@
+{
+  "case_id": "case_009",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_9.json",
+  "workspace_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_009",
+  "template_repo_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_009/template_repo",
+  "output_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_009/output",
+  "predicted_project_dir": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_009/output/Broken Value_pkg",
+  "mode": "cli",
+  "template_source": "local",
+  "invocation": {
+    "no_input": true,
+    "extra_context": {
+      "project_name": "Overwritten Project"
+    },
+    "replay": null,
+    "overwrite_if_exists": false,
+    "skip_if_file_exists": false,
+    "accept_hooks": true,
+    "keep_project_on_failure": true,
+    "output_dir_state": "existing_empty"
+  },
+  "replay_file": null,
+  "notes": {
+    "cwd": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter"
+  }
+}

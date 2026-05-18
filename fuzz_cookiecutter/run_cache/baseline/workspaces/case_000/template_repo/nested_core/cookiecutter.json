@@ -1,0 +1,16 @@
+{
+  "project_name": "Replay Project",
+  "repo_name": "{{ cookiecutter.project_name|lower }}",
+  "feature_flags": {
+    "docs": false,
+    "ci": true
+  },
+  "owner": {
+    "team": "platform",
+    "email": "team@example.com"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/assets/*"
+  ],
+  "_new_lines": "\n"
+}

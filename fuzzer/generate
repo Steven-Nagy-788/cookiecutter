@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+import argparse
+import subprocess
+from pathlib import Path
+
+TARGETS = {
+    "json": {
+        "rule": "json_start",
+        "ext": "json",
+    },
+    "ssti": {
+        "rule": "ssti_start",
+        "ext": "json",
+    },
+    "cli": {
+        "rule": "cli_start",
+        "ext": "txt",
+    }
+}
+
+def main():
+    parser = argparse.ArgumentParser(description="Generate fuzz samples from unified grammar.")
+    parser.add_argument("target", choices=["json", "ssti", "cli", "all"], help="Which type to generate")
+    parser.add_argument("-n", "--num", type=int, default=1, help="Number of samples to generate")
+    parser.add_argument("-d", "--depth", type=int, default=15, help="Max depth")
+    parser.add_argument("-o", "--outdir", type=str, default="samples", help="Output directory")
+    args = parser.parse_args()
+
+    root = Path(__file__).resolve().parent
+    gfile = root / "CookiecutterUnified.g4"
+    gen_dir = root / "gen"
+    out_dir = Path(args.outdir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    # Process grammar
+    gen_dir.mkdir(exist_ok=True)
+    print("Compiling unified grammar...")
+    subprocess.run(["antlr4", "-Dlanguage=Python3", "-visitor", str(gfile)], check=True)
+    subprocess.run(["grammarinator-process", str(gfile), "-o", str(gen_dir)], check=True)
+
+    targets = list(TARGETS.keys()) if args.target == "all" else [args.target]
+
+    for target in targets:
+        info = TARGETS[target]
+        print(f"[{target}] Generating {args.num} samples...")
+        target_out = out_dir / target
+        target_out.mkdir(exist_ok=True)
+        cmd = [
+            "grammarinator-generate",
+            "--sys-path", str(gen_dir),
+            "CookiecutterUnifiedGenerator.CookiecutterUnifiedGenerator",
+            "-r", info["rule"],
+            "-n", str(args.num),
+            "-d", str(args.depth),
+            "-o", str(target_out / f"sample_%d.{info['ext']}")
+        ]
+        subprocess.run(cmd, check=True)
+
+    print("Done!")
+
+if __name__ == "__main__":
+    main()

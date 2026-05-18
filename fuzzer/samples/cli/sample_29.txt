@@ -1,0 +1,1 @@
+tests/fake-nested-templates/ --no-input --config-file tests/test-config/valid-config.yaml

@@ -1,0 +1,17 @@
+{
+  "case_id": "case_002",
+  "details": {},
+  "duration_ms": 334,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": "hook_script_render",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_2.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "ERROR: Stopping generation because pre_gen_project hook script didn't exit successfully\nTraceback (most recent call last):\n  File \"/media/steven/MaD/projects/cookiecutter/cookiecutter/hooks.py\", line 165, in run_hook_from_repo_dir\n    run_hook(hook_name, project_dir, context)\n  File \"/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/runner_entry.py\", line 66, in inner\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/media/steven/MaD/projects/cookiecutter/cookiecutter/hooks.py\", line 144, in run_hook\n    run_script_with_context(script, project_dir, context)\n  File \"/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/runner_entry.py\", line 66, in inner\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/media/steven/MaD/projects/"
+}

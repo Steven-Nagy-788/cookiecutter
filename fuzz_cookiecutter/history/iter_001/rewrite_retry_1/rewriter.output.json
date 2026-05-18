@@ -1,0 +1,9 @@
+{
+  "rationale": "Heuristic fallback keeps the grammar stable for smoke runs.",
+  "updates": [
+    {
+      "rule": "hook_script",
+      "replacement": "hook_script\n    : 'null'\n    | '\"from pathlib import Path\\\\nPath(\\'HOOK_OK\\').write_text(\\'ok\\', encoding=\\'utf-8\\')\\\\n\"'\n    | '\"raise SystemExit(1)\\\\n\"'\n    ;"
+    }
+  ]
+}

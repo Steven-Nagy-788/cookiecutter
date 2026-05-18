@@ -1,0 +1,19 @@
+{
+  "case_id": "case_002",
+  "details": {
+    "exception_repr": "UndefinedVariableInTemplate(\"Unable to create file '{{cookiecutter.repo_name}}/pyproject.toml'\", UndefinedError(\"'dict object' has no attribute 'feature_flags'\"), {'cookiecutter': {'project_name': 'Replay Project', 'repo_name': 'replay_project', 'use_docker': True, 'license': 'MIT', '_copy_without_render': ['{{cookiecutter.repo_name}}/assets/*'], '_new_lines': '\\n', 'database': {'engine': 'sqlite', 'port': '5432'}, '_template': '/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_002/template_repo', '_output_dir': '/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_002/output', '_repo_dir': '/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_002/template_repo', '_checkout': None}, '_cookiecutter': {'project_name': 'Replay Project', 'repo_name': 'replay_project', 'use_docker': True}})"
+  },
+  "duration_ms": 325,
+  "exception_message": "Unable to create file '{{cookiecutter.repo_name}}/pyproject.toml'. Error message: 'dict object' has no attribute 'feature_flags'. Context: {'cookiecutter': {'project_name': 'Replay Project', 'repo_name': 'replay_project', 'use_docker': True, 'license': 'MIT', '_copy_without_render': ['{{cookiecutter.repo_name}}/assets/*'], '_new_lines': '\\n', 'database': {'engine': 'sqlite', 'port': '5432'}, '_template': '/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_002/template_repo', '_output_dir': '/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_002/output', '_repo_dir': '/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_002/template_repo', '_checkout': None}, '_cookiecutter': {'project_name': 'Replay Project', 'repo_name': 'replay_project', 'use_docker': True}}",
+  "exception_type": "UndefinedVariableInTemplate",
+  "execution_mode": "api",
+  "exit_code": 1,
+  "file_count_created": 1,
+  "generated_project_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_002/output/Cookie Lab_pkg",
+  "hook_phase_reached": "render_file",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/cases/case_2.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": ""
+}

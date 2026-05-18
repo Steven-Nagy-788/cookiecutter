@@ -1,0 +1,22 @@
+{
+  "project_name": "Cookie Lab",
+  "repo_name": "{{ cookiecutter.project_name }}_pkg",
+  "use_docker": false,
+  "license": [
+    "MIT",
+    "GPL",
+    "Apache"
+  ],
+  "database": {
+    "engine": "sqlite",
+    "port": "5432"
+  },
+  "__prompts__": {
+    "project_name": "Name of the generated package",
+    "owner": "Owner metadata"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/assets/*"
+  ],
+  "_new_lines": "\n"
+}

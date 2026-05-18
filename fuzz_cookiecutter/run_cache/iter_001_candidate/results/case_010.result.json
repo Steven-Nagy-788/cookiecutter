@@ -1,0 +1,17 @@
+{
+  "case_id": "case_010",
+  "details": {},
+  "duration_ms": 305,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 2,
+  "generated_project_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_010/output/Broken Value_pkg",
+  "hook_phase_reached": "render_file",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/cases/case_10.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Unable to create file 'rendered/config.yml'\nError message: 'collections.OrderedDict object' has no attribute 'database'\nContext: {\n    \"_cookiecutter\": {\n        \"feature_flags\": {\n            \"ci\": true,\n            \"docs\": false\n        },\n        \"owner\": {\n            \"email\": \"team@example.com\",\n            \"team\": \"platform\"\n        },\n        \"project_name\": \"Broken Value\",\n        \"repo_name\": \"{{ cookiecutter.project_name }}_pkg\"\n    },\n    \"cookiecutter\": {\n        \"_checkout\": null,\n        \"_copy_without_render\": [\n            \"{{cookiecutter.repo_name}}/rendered/*.yml\"\n        ],\n        \"_output_dir\": \"/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_010/output\",\n        \"_repo_dir\": \"/media/steven/MaD/projects/cookiecutte"
+}

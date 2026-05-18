@@ -1,0 +1,17 @@
+{
+  "case_id": "case_000",
+  "details": {},
+  "duration_ms": 330,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 1,
+  "generated_project_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_000/output/Replay Project",
+  "hook_phase_reached": "render_path",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_0.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Error: \"/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/workspaces/case_000/output/Replay Project\" directory already exists\n"
+}

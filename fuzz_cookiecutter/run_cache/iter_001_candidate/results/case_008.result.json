@@ -1,0 +1,17 @@
+{
+  "case_id": "case_008",
+  "details": {},
+  "duration_ms": 311,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 1,
+  "generated_project_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/workspaces/case_008/output/Cookie Lab_pkg",
+  "hook_phase_reached": "pre_prompt",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/cases/case_8.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Pre-Prompt Hook script failed\n"
+}

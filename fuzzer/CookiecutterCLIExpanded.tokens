@@ -1,0 +1,49 @@
+LIST_INSTALLED=1
+NO_INPUT=2
+REPLAY=3
+DEFAULT_CONFIG=4
+VALID_CONFIG=5
+PARTIAL_CONFIG=6
+OVERWRITE=7
+SKIP_ARG=8
+KEEP=9
+VERBOSE=10
+ACCEPT_YES=11
+ACCEPT_NO=12
+FAKE_REPO_PRE=13
+FAKE_REPO_TMPL=14
+FAKE_REPO_DICT=15
+FAKE_NESTED=16
+FAKE_REPO_REPLAY=17
+EXTRA_REPO_NAME=18
+EXTRA_PROJECT_NAME=19
+EXTRA_SHORT_DESC=20
+EXTRA_FULL_NAME=21
+EXTRA_EMAIL=22
+EXTRA_GITHUB=23
+SP=24
+WS=25
+'-l'=1
+'--no-input'=2
+'--replay --replay-file tests/test-replay/valid_replay.json'=3
+'--default-config'=4
+'--config-file tests/test-config/valid-config.yaml'=5
+'--config-file tests/test-config/valid-partial-config.yaml'=6
+'--overwrite-if-exists'=7
+'--skip-if-file-exists'=8
+'--keep-project-on-failure'=9
+'-v'=10
+'--accept-hooks=yes'=11
+'--accept-hooks=no'=12
+'tests/fake-repo-pre/'=13
+'tests/fake-repo-tmpl/'=14
+'tests/fake-repo-dict/'=15
+'tests/fake-nested-templates/'=16
+'tests/fake-repo-replay/'=17
+'repo_name=fuzz-project'=18
+'project_name=Fuzz_Project'=19
+'project_short_description=Expanded_fuzzing'=20
+'full_name=Fuzz_User'=21
+'email=fuzz@example.com'=22
+'github_username=fuzz_user'=23
+' '=24

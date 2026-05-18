@@ -1,0 +1,22 @@
+{
+  "project_name": "Example Project",
+  "repo_name": "{{ cookiecutter.project_name|lower }}",
+  "feature_flags": {
+    "docs": true,
+    "ci": false
+  },
+  "owner": {
+    "team": "platform",
+    "email": "team@example.com"
+  },
+  "__prompts__": {
+    "project_name": "Project name?",
+    "use_docker": "Use Docker?",
+    "license": "Choose a license",
+    "database": "Database settings"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/assets/*"
+  ],
+  "_new_lines": "\n"
+}

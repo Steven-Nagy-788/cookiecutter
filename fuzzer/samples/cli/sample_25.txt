@@ -1,0 +1,1 @@
+tests/fake-repo-dict/ --no-input project_name=Fuzz_Project --accept-hooks=no

@@ -1,0 +1,17 @@
+{
+  "project_name": "Broken Value",
+  "repo_name": "{{ cookiecutter.project_name|lower }}",
+  "use_docker": true,
+  "license": [
+    "BSD",
+    "MIT"
+  ],
+  "database": {
+    "engine": "sqlite",
+    "port": "5432"
+  },
+  "_copy_without_render": [
+    "{{cookiecutter.repo_name}}/assets/*"
+  ],
+  "_new_lines": "\r\n"
+}
