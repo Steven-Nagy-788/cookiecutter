@@ -1,0 +1,8 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_repo_dir": "*{{KM.UXI}}"
+  },
+  "case_id": "case_043",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_015_candidate/cases/case_43.json"
+}

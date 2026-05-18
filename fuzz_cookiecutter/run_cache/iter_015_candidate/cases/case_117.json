@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-bad/ --no-input --replay project_short_description=Expanded_fuzzing repo_name=fuzz-project"}

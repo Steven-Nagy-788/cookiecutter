@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input github_username=fuzz_user github_username=fuzz_user full_name=Fuzz_User github_username=fuzz_user"}

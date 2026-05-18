@@ -1,0 +1,13 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_output_dir": -6.6,
+    "version": -8.83,
+    "module_name": {
+      "_extensions": null
+    },
+    "description": -14
+  },
+  "case_id": "case_151",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_028_candidate/cases/case_151.json"
+}

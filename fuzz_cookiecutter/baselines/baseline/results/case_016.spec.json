@@ -1,0 +1,17 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "__prompts__": 22,
+    "_copy_without_render": false,
+    "email": -5,
+    "_template": null,
+    "project_name": [],
+    "module_name": null,
+    "description": {
+      "repo_name": null,
+      "w": 1.94
+    }
+  },
+  "case_id": "case_016",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_16.json"
+}

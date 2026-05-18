@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/test-hooks/ --no-input -h",
+  "case_id": "case_030",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_30.json"
+}

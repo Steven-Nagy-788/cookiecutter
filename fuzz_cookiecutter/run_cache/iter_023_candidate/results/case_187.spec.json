@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-pre/ --no-input --config-file tests/test-config/valid-partial-config.yaml --no-input --default-config --debug",
+  "case_id": "case_187",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_023_candidate/cases/case_187.json"
+}

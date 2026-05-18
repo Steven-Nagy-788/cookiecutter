@@ -1,0 +1,17 @@
+{
+  "case_id": "case_155",
+  "details": {},
+  "duration_ms": 1,
+  "exception_message": null,
+  "exception_type": null,
+  "execution_mode": "cli",
+  "exit_code": 0,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_028_candidate/cases/case_155.json",
+  "materialization_status": "OK",
+  "status": "SUCCESS",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Cookiecutter 2.7.1 from /media/steven/MaD/projects/cookiecutter (Python 3.12.3 (main, Mar 23 2026, 19:04:32) [GCC 13.3.0])\n"
+}

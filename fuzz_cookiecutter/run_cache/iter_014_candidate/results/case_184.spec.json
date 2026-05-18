@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input --debug full_name=Fuzz_User --default-config",
+  "case_id": "case_184",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_014_candidate/cases/case_184.json"
+}

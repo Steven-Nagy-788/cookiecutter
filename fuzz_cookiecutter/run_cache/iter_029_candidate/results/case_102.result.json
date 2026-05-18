@@ -1,0 +1,17 @@
+{
+  "case_id": "case_102",
+  "details": {},
+  "duration_ms": 227,
+  "exception_message": null,
+  "exception_type": "UndefinedVariableInTemplate",
+  "execution_mode": "json",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_029_candidate/cases/case_102.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Unable to render variable 'project_slug'. Error message: 'P' is undefined. Context: {'cookiecutter': {'project_slug': '__a72SN6fVza8_*./{{P}}. '}}"
+}

@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input github_username=fuzz_user email=fuzz@example.com --replay --accept-hooks=no repo_name=fuzz-project"}

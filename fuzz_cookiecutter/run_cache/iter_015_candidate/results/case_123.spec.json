@@ -1,0 +1,10 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "repo_name": -0.23,
+    "templates": -5595547,
+    "email": "{{W2OF.t5R}}"
+  },
+  "case_id": "case_123",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_015_candidate/cases/case_123.json"
+}

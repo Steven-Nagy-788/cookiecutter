@@ -1,0 +1,17 @@
+{
+  "case_id": "case_173",
+  "details": {},
+  "duration_ms": 3,
+  "exception_message": null,
+  "exception_type": null,
+  "execution_mode": "cli",
+  "exit_code": 0,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_006_candidate/cases/case_173.json",
+  "materialization_status": "OK",
+  "status": "SUCCESS",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "2 installed templates: \n * cookicuttertemptest\n * cookiecutter-pypackage\n"
+}

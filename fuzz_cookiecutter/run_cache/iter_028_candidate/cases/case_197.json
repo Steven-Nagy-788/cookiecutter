@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-tmpl/ --no-input --config-file tests/test-config/valid-config.yaml --replay repo_name=fuzz-project --checkout v --replay"}

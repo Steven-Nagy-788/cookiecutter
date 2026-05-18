@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --overwrite-if-exists --replay email=fuzz@example.com --checkout Iunx"}

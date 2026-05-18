@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input -h project_name=Fuzz_Project --accept-hooks=yes --accept-hooks=yes"}

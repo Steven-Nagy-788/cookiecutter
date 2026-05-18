@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-tmpl/ --no-input --config-file tests/test-config/valid-config.yaml --replay repo_name=fuzz-project --checkout v --replay",
+  "case_id": "case_197",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_028_candidate/cases/case_197.json"
+}

@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-hooks/ --no-input github_username=fuzz_user project_short_description=Expanded_fuzzing"}

@@ -1,0 +1,9 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "template": -7,
+    "email": null
+  },
+  "case_id": "case_051",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_030_candidate/cases/case_51.json"
+}

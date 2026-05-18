@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-dict/ --no-input --overwrite-if-exists --config-file tests/test-config/valid-config.yaml full_name=Fuzz_User"}

@@ -1,0 +1,17 @@
+{
+  "case_id": "case_183",
+  "details": {},
+  "duration_ms": 254,
+  "exception_message": null,
+  "exception_type": "UndefinedVariableInTemplate",
+  "execution_mode": "json",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_002_candidate/cases/case_183.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Unable to render variable 'project_slug'. Error message: 'a' is undefined. Context: {'cookiecutter': {'version': {}, 'project_slug': '_61 5/{{a}}'}}"
+}

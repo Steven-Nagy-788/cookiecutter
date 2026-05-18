@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --replay email=fuzz@example.com --skip-if-file-exists --overwrite-if-exists --config-file tests/test-config/valid-partial-config.yaml --accept-hooks=no"}

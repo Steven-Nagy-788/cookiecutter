@@ -1,0 +1,25 @@
+{
+  "analysis": "Heuristic fallback planner. Exploring CLI args and JSON keys.",
+  "line_target_hints": [],
+  "overrepresented_responses": [],
+  "reachable_by_grammar": [
+    "add more cli options",
+    "add malicious json strings"
+  ],
+  "reachable_by_harness_only": [],
+  "recommended_rule_edits": [
+    {
+      "rationale": "Add more CLI flags.",
+      "rule": "render_item"
+    },
+    {
+      "rationale": "Add missing cookiecutter dict keys.",
+      "rule": "key"
+    }
+  ],
+  "underexplored_scenario_families": [
+    "cli options",
+    "json keys"
+  ],
+  "unreachable_harness_limits": []
+}

@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-hooks/ --no-input --default-config --default-config --skip-if-file-exists --overwrite-if-exists"}

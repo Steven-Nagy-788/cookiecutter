@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo/ --no-input email=fuzz@example.com --overwrite-if-exists project_short_description=Expanded_fuzzing",
+  "case_id": "case_041",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_005_candidate/cases/case_41.json"
+}

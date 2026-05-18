@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input project_name=Fuzz_Project --replay -h",
+  "case_id": "case_031",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_012_candidate/cases/case_31.json"
+}

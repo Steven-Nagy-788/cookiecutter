@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input project_name=Fuzz_Project project_short_description=Expanded_fuzzing --keep-project-on-failure --config-file tests/test-config/valid-config.yaml project_name=Fuzz_Project",
+  "case_id": "case_087",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_008_candidate/cases/case_87.json"
+}

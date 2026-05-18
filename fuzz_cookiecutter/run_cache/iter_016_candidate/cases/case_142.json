@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-pre/ --no-input --keep-project-on-failure --replay --no-input project_short_description=Expanded_fuzzing github_username=fuzz_user -v"}

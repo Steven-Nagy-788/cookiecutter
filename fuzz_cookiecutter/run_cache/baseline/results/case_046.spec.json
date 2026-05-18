@@ -1,0 +1,14 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "pp": 1.07,
+    "project_name": [
+      6.3,
+      " -.{{f.O}}_/",
+      false,
+      null
+    ]
+  },
+  "case_id": "case_046",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_46.json"
+}

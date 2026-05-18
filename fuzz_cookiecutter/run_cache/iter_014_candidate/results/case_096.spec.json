@@ -1,0 +1,10 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "license": true,
+    "version": -7.997,
+    "_copy_without_render": true
+  },
+  "case_id": "case_096",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_014_candidate/cases/case_96.json"
+}

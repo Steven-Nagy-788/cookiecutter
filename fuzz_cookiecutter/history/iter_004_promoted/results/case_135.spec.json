@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input --replay --accept-hooks=yes project_short_description=Expanded_fuzzing email=fuzz@example.com",
+  "case_id": "case_135",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_004_candidate/cases/case_135.json"
+}

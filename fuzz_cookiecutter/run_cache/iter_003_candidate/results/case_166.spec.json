@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-replay/ --replay --replay-file tests/test-replay/valid_replay.json --config-file tests/test-config/valid-partial-config.yaml --config-file tests/test-config/valid-partial-config.yaml",
+  "case_id": "case_166",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_003_candidate/cases/case_166.json"
+}

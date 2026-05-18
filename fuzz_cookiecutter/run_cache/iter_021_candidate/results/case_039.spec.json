@@ -1,0 +1,30 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "template": [
+      {
+        "Dj": {
+          "description": null
+        },
+        "_extensions": {},
+        "_jinja2_env_vars": [
+          -1
+        ]
+      }
+    ],
+    "_repo_dir": [
+      [
+        3.0
+      ],
+      [
+        false
+      ]
+    ],
+    "description": null,
+    "license": {},
+    "full_name": null,
+    "_extensions": {}
+  },
+  "case_id": "case_039",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_021_candidate/cases/case_39.json"
+}

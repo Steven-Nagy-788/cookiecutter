@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/test-hooks/ --no-input project_short_description=Expanded_fuzzing",
+  "case_id": "case_170",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_028_candidate/cases/case_170.json"
+}

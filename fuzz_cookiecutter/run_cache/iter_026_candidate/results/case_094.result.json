@@ -1,0 +1,17 @@
+{
+  "case_id": "case_094",
+  "details": {},
+  "duration_ms": 208,
+  "exception_message": null,
+  "exception_type": "NonTemplatedInputDirException",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_026_candidate/cases/case_94.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": ""
+}

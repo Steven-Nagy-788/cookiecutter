@@ -1,0 +1,17 @@
+{
+  "case_id": "case_020",
+  "details": {},
+  "duration_ms": 2,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_002_candidate/cases/case_20.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "JSON decoding error while loading '/media/steven/MaD/projects/cookiecutter/tests/fake-repo/cookiecutter.json'. Decoding error details: 'Expecting value: line 1 column 1 (char 0)'\n"
+}

@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-bad/ --no-input --skip-if-file-exists --accept-hooks=no --checkout HC",
+  "case_id": "case_005",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_008_candidate/cases/case_5.json"
+}

@@ -1,0 +1,17 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "repo_name": -8,
+    "templates": [
+      "R9Eomb0350O_{{R}}/",
+      null,
+      true,
+      null,
+      7.5,
+      true
+    ],
+    "_jinja2_env_vars": true
+  },
+  "case_id": "case_085",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_021_candidate/cases/case_85.json"
+}

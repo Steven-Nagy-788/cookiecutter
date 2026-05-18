@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-bad/ --no-input --skip-if-file-exists --accept-hooks=yes --default-config --keep-project-on-failure"}

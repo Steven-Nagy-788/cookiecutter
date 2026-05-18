@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "-l --default-config",
+  "case_id": "case_162",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/cases/case_162.json"
+}

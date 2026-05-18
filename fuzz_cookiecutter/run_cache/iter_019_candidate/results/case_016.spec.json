@@ -1,0 +1,13 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "project_slug": [
+      "_{{S.jk}}5a_"
+    ],
+    "_repo_dir": {},
+    "_new_lines": -306.0,
+    "project_name": "{{m.dp}}D24V/.**"
+  },
+  "case_id": "case_016",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_019_candidate/cases/case_16.json"
+}

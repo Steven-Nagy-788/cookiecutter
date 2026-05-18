@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-extensions/ --no-input --config-file tests/test-config/valid-partial-config.yaml email=fuzz@example.com email=fuzz@example.com -v full_name=Fuzz_User email=fuzz@example.com"}

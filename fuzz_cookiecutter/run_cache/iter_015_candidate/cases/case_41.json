@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-hooks/ --no-input project_name=Fuzz_Project --accept-hooks=no --skip-if-file-exists email=fuzz@example.com"}

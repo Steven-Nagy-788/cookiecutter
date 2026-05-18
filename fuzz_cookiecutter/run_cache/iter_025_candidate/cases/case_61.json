@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo/ --no-input full_name=Fuzz_User --keep-project-on-failure"}

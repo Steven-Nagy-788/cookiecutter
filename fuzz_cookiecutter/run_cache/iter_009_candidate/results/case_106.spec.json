@@ -1,0 +1,27 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "project_slug": [
+      {
+        "_requirements": false,
+        "_copy_without_render": {},
+        "template": {},
+        "_template": {}
+      },
+      {
+        "_copy_without_render": -5.7,
+        "_extensions": [
+          null
+        ],
+        "_new_lines": true,
+        "description": {
+          "_jinja2_env_vars": true
+        },
+        "g": null
+      },
+      null
+    ]
+  },
+  "case_id": "case_106",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_009_candidate/cases/case_106.json"
+}

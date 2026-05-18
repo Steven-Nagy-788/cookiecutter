@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-extensions/ --no-input project_short_description=Expanded_fuzzing project_short_description=Expanded_fuzzing --config-file tests/test-config/valid-partial-config.yaml --config-file tests/test-config/valid-config.yaml --default-config"}

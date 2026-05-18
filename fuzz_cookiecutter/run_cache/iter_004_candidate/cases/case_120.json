@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-hooks/ --no-input email=fuzz@example.com"}

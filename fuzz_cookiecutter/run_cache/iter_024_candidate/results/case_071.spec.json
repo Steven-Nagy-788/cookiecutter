@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-dict/ --no-input --accept-hooks=yes",
+  "case_id": "case_071",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_024_candidate/cases/case_71.json"
+}

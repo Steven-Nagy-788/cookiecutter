@@ -1,0 +1,17 @@
+{
+  "case_id": "case_198",
+  "details": {},
+  "duration_ms": 4,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_007_candidate/cases/case_198.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "DEBUG cookiecutter.config: Loading custom config from tests/test-config/valid-partial-config.yaml.\nDEBUG cookiecutter.config: config_path is tests/test-config/valid-partial-config.yaml\nDEBUG cookiecutter.main: context_file is tests/fake-repo/cookiecutter.json\nJSON decoding error while loading '/media/steven/MaD/projects/cookiecutter/tests/fake-repo/cookiecutter.json'. Decoding error details: 'Expecting value: line 1 column 1 (char 0)'\n"
+}

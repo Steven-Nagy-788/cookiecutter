@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/test-hooks/ --no-input --overwrite-if-exists --checkout e",
+  "case_id": "case_046",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_010_candidate/cases/case_46.json"
+}

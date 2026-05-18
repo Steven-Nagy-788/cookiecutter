@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --skip-if-file-exists full_name=Fuzz_User --config-file tests/test-config/valid-config.yaml --accept-hooks=no full_name=Fuzz_User"}

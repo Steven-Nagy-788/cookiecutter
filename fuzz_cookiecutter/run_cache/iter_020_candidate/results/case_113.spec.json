@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/test-hooks/ --no-input --default-config --default-config -V --checkout FiFSZ7",
+  "case_id": "case_113",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_020_candidate/cases/case_113.json"
+}

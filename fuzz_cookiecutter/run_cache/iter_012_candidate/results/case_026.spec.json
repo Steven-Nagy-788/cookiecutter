@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-replay/ --replay --replay-file tests/test-replay/valid_replay.json -v --skip-if-file-exists --keep-project-on-failure --skip-if-file-exists --keep-project-on-failure --overwrite-if-exists",
+  "case_id": "case_026",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_012_candidate/cases/case_26.json"
+}

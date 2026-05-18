@@ -1,0 +1,13 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "project_slug": false,
+    "_extensions": -50.876,
+    "_repo_dir": [
+      false
+    ],
+    "template": ".{{ED.R}}"
+  },
+  "case_id": "case_137",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_012_candidate/cases/case_137.json"
+}

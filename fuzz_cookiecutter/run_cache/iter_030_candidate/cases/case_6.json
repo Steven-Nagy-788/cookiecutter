@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-tmpl/ --no-input -v --keep-project-on-failure --accept-hooks=yes project_short_description=Expanded_fuzzing project_short_description=Expanded_fuzzing"}

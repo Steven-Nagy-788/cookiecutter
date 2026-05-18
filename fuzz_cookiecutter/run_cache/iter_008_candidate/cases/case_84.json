@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-bad/ --no-input github_username=fuzz_user --accept-hooks=yes --replay"}

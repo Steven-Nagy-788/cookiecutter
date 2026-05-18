@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input repo_name=fuzz-project project_short_description=Expanded_fuzzing github_username=fuzz_user",
+  "case_id": "case_162",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_024_candidate/cases/case_162.json"
+}

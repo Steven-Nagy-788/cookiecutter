@@ -1,0 +1,13 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "repo_name": {
+      "BZ": {
+        "license": false
+      }
+    },
+    "module_name": -7
+  },
+  "case_id": "case_106",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_006_candidate/cases/case_106.json"
+}

@@ -1,0 +1,17 @@
+{
+  "case_id": "case_059",
+  "details": {},
+  "duration_ms": 5,
+  "exception_message": null,
+  "exception_type": null,
+  "execution_mode": "cli",
+  "exit_code": 0,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_59.json",
+  "materialization_status": "OK",
+  "status": "SUCCESS",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Usage: main [OPTIONS] [TEMPLATE] [EXTRA_CONTEXT]...\n\n  Create a project from a Cookiecutter project template (TEMPLATE).\n\n  Cookiecutter is free and open source software, developed and managed by\n  volunteers. If you would like to help out or fund the project, please get in\n  touch at https://github.com/cookiecutter/cookiecutter.\n\nOptions:\n  -V, --version                Show the version and exit.\n  --no-input                   Do not prompt for parameters and only use\n                               cookiecutter.json file content. Defaults to\n                               deleting any cached resources and redownloading\n                               them. Cannot be combined with the --replay flag.\n  -c, --checkout TEXT          branch, tag or commit to checkout after git clone\n  --direc..."
+}

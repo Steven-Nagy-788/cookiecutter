@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input full_name=Fuzz_User project_short_description=Expanded_fuzzing -h project_name=Fuzz_Project --config-file tests/test-config/valid-config.yaml --skip-if-file-exists -h -h"}

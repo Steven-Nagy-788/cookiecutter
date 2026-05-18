@@ -1,0 +1,15 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_repo_dir": false,
+    "project_slug": true,
+    "_jinja2_env_vars": true,
+    "_extensions": "{{sa_3U.U}}",
+    "templates": null,
+    "project_name": [
+      true
+    ]
+  },
+  "case_id": "case_178",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_002_candidate/cases/case_178.json"
+}

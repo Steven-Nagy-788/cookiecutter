@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo/ --no-input email=fuzz@example.com --overwrite-if-exists project_short_description=Expanded_fuzzing"}

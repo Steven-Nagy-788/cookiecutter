@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-tmpl/ --no-input -v --keep-project-on-failure --accept-hooks=yes project_short_description=Expanded_fuzzing project_short_description=Expanded_fuzzing",
+  "case_id": "case_006",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_030_candidate/cases/case_6.json"
+}

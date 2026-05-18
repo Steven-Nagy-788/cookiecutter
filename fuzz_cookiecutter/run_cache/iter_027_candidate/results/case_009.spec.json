@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input --skip-if-file-exists email=fuzz@example.com repo_name=fuzz-project github_username=fuzz_user github_username=fuzz_user",
+  "case_id": "case_009",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_027_candidate/cases/case_9.json"
+}

@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-extensions/ --no-input project_name=Fuzz_Project"}

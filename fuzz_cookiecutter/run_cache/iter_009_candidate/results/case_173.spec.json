@@ -1,0 +1,8 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "templates": "{{JGnSak.M8}}"
+  },
+  "case_id": "case_173",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_009_candidate/cases/case_173.json"
+}

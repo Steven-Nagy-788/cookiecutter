@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input --default-config --keep-project-on-failure github_username=fuzz_user",
+  "case_id": "case_113",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_026_candidate/cases/case_113.json"
+}

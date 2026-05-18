@@ -1,0 +1,13 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "description": true,
+    "module_name": true,
+    "__prompts__": "{{g}}",
+    "_requirements": {
+      "_jinja2_env_vars": false
+    }
+  },
+  "case_id": "case_164",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_020_candidate/cases/case_164.json"
+}

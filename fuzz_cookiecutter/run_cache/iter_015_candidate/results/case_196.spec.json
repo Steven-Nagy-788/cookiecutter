@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/test-hooks/ --no-input --config-file tests/test-config/valid-partial-config.yaml",
+  "case_id": "case_196",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_015_candidate/cases/case_196.json"
+}

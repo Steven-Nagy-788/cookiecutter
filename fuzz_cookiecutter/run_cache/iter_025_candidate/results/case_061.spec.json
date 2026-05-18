@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo/ --no-input full_name=Fuzz_User --keep-project-on-failure",
+  "case_id": "case_061",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_025_candidate/cases/case_61.json"
+}

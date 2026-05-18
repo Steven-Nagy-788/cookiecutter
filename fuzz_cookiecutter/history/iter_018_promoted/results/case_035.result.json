@@ -1,0 +1,17 @@
+{
+  "case_id": "case_035",
+  "details": {},
+  "duration_ms": 1,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_018_candidate/cases/case_35.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "You can not use both replay and no_input or extra_context at the same time.\n"
+}

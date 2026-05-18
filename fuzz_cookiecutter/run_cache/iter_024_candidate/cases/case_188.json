@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-tmpl/ --no-input --config-file tests/test-config/valid-config.yaml --replay full_name=Fuzz_User"}

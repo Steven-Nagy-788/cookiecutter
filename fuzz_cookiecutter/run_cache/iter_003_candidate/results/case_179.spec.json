@@ -1,0 +1,18 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "full_name": true,
+    "module_name": [
+      [
+        true,
+        null,
+        true
+      ]
+    ],
+    "license": 311,
+    "__prompts__": 2.4,
+    "template": "{{f2CY.xqlO}}"
+  },
+  "case_id": "case_179",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_003_candidate/cases/case_179.json"
+}

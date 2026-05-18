@@ -1,0 +1,17 @@
+{
+  "case_id": "case_164",
+  "details": {},
+  "duration_ms": 218,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_027_candidate/cases/case_164.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "DEBUG cookiecutter.config: Loading custom config from tests/test-config/valid-partial-config.yaml.\nDEBUG cookiecutter.config: config_path is tests/test-config/valid-partial-config.yaml\nDEBUG cookiecutter.hooks: hooks_dir is /media/steven/MaD/projects/cookiecutter/tests/fake-repo-replay/hooks\nDEBUG cookiecutter.hooks: No hooks/dir in template_dir\nDEBUG cookiecutter.main: context_file is tests/fake-repo-replay/cookiecutter.json\nDEBUG cookiecutter.generate: Context generated is OrderedDict({'cookiecutter': OrderedDict({'full_name': 'Firstname Lastname', 'email': 'firstname.lastname@gmail.com', 'github_username': 'example', 'project_name': 'Replay Project', 'repo_name': \"{{ cookiecutter.project_name|lower|replace(' ', '-') }}\", 'description': 'original', 'release_date': '2013-07-28', 'year'..."
+}

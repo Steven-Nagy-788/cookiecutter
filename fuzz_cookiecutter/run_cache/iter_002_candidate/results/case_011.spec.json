@@ -1,0 +1,13 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "license": true,
+    "_requirements": [
+      [
+        "{{toC.V}}"
+      ]
+    ]
+  },
+  "case_id": "case_011",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_002_candidate/cases/case_11.json"
+}

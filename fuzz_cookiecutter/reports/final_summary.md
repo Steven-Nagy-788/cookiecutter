@@ -1,0 +1,36 @@
+# Cookiecutter Agentic Fuzzer Summary
+
+- Champion batch: iter_018_candidate
+- Champion coverage: 59.71%
+- History:
+  - baseline 59.00%
+  - iter_001 rejected 58.57%
+  - iter_002 promoted 59.28%
+  - iter_003 rejected 58.14%
+  - iter_004 promoted 59.50%
+  - iter_005 rejected 58.64%
+  - iter_006 rejected 59.21%
+  - iter_007 rejected 59.07%
+  - iter_008 rejected 58.35%
+  - iter_009 rejected 59.28%
+  - iter_010 rejected 58.92%
+  - iter_011 promoted 59.71%
+  - iter_012 rejected 58.85%
+  - iter_013 rejected 59.21%
+  - iter_014 rejected 59.35%
+  - iter_015 rejected 59.50%
+  - iter_016 rejected 59.57%
+  - iter_017 rejected 59.14%
+  - iter_018 promoted 59.71%
+  - iter_019 rejected 59.50%
+  - iter_020 rejected 53.69%
+  - iter_021 rejected 59.71%
+  - iter_022 rejected 59.21%
+  - iter_023 rejected 59.07%
+  - iter_024 rejected 59.28%
+  - iter_025 rejected 59.28%
+  - iter_026 rejected 57.92%
+  - iter_027 rejected 59.14%
+  - iter_028 rejected 59.21%
+  - iter_029 rejected 58.57%
+  - iter_030 rejected 59.43%

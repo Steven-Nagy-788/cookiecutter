@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo/ --no-input repo_name=fuzz-project --overwrite-if-exists",
+  "case_id": "case_118",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_004_candidate/cases/case_118.json"
+}

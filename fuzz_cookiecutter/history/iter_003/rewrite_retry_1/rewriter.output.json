@@ -1,0 +1,9 @@
+{
+  "rationale": "Heuristic fallback injecting new random options to increase coverage.",
+  "updates": [
+    {
+      "rule": "template",
+      "replacement": "template\n    : FAKE_REPO_PRE | FAKE_REPO_TMPL | FAKE_REPO_DICT | 'tests/fake-repo/' | 'tests/fake-repo-bad/' | 'tests/test-extensions/' | 'tests/test-hooks/'\n    ;"
+    }
+  ]
+}

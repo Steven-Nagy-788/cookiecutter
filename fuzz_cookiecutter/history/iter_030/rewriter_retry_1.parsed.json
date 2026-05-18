@@ -1,0 +1,9 @@
+{
+  "rationale": "Heuristic fallback injecting new random options to increase coverage.",
+  "updates": [
+    {
+      "replacement": "render_item\n    : DEFAULT_CONFIG | VALID_CONFIG | PARTIAL_CONFIG | OVERWRITE | SKIP | KEEP | VERBOSE | ACCEPT_YES | ACCEPT_NO | EXTRA_REPO_NAME | EXTRA_PROJECT_NAME | EXTRA_SHORT_DESC | EXTRA_FULL_NAME | EXTRA_EMAIL | EXTRA_GITHUB | '--debug' | '-V' | '-h' | '--no-input' | '--replay' | '--checkout' SPACE IDENT\n    ;",
+      "rule": "render_item"
+    }
+  ]
+}

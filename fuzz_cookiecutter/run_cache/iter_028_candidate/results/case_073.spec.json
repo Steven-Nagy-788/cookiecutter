@@ -1,0 +1,9 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "version": -9396,
+    "_output_dir": "{{MjYP8sQ.hMPU}}"
+  },
+  "case_id": "case_073",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_028_candidate/cases/case_73.json"
+}

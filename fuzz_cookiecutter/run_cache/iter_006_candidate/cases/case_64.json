@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-replay/ --replay --replay-file tests/test-replay/valid_replay.json -v --config-file tests/test-config/valid-partial-config.yaml -v -v --overwrite-if-exists --skip-if-file-exists --config-file tests/test-config/valid-config.yaml -v"}

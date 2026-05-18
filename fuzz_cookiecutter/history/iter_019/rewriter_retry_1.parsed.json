@@ -1,0 +1,9 @@
+{
+  "rationale": "Heuristic fallback injecting new random options to increase coverage.",
+  "updates": [
+    {
+      "replacement": "key\n    : PROJECT_NAME | PROJECT_SLUG | DESCRIPTION | FULL_NAME | EMAIL | VERSION | LICENSE | REPO_NAME | MODULE_NAME | COPY_WITHOUT_RENDER | JINJA2_ENV_VARS | EXTENSIONS | NEW_LINES | PROMPTS | TEMPLATE | TEMPLATES | IDENT | '_template' | '_output_dir' | '_repo_dir' | '_requirements'\n    ;",
+      "rule": "key"
+    }
+  ]
+}

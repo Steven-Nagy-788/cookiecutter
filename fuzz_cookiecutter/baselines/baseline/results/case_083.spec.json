@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "-l",
+  "case_id": "case_083",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_83.json"
+}

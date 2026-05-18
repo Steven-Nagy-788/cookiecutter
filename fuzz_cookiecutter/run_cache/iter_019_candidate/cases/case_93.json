@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-tmpl/ --no-input project_short_description=Expanded_fuzzing --config-file tests/test-config/valid-config.yaml --no-input --no-input --replay project_short_description=Expanded_fuzzing --keep-project-on-failure"}

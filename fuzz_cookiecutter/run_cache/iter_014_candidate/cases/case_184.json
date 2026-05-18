@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --debug full_name=Fuzz_User --default-config"}

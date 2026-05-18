@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-extensions/ --no-input --keep-project-on-failure --accept-hooks=yes email=fuzz@example.com"}

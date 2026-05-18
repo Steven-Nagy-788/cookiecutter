@@ -1,0 +1,17 @@
+{
+  "case_id": "case_100",
+  "details": {},
+  "duration_ms": 235,
+  "exception_message": null,
+  "exception_type": "OSError",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_030_candidate/cases/case_100.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "DEBUG cookiecutter.config: Loading custom config from tests/test-config/valid-config.yaml.\nDEBUG cookiecutter.config: config_path is tests/test-config/valid-config.yaml\nDEBUG cookiecutter.hooks: hooks_dir is /media/steven/MaD/projects/cookiecutter/tests/fake-nested-templates/hooks\nDEBUG cookiecutter.hooks: No hooks/dir in template_dir\nDEBUG cookiecutter.main: context_file is tests/fake-nested-templates/cookiecutter.json\nDEBUG cookiecutter.generate: Context generated is OrderedDict({'cookiecutter': OrderedDict({'templates': OrderedDict({'fake-project': OrderedDict({'path': './fake-project', 'title': 'A Fake Project', 'description': 'A cookiecutter template for a project'}), 'fake-package': OrderedDict({'path': './fake-package', 'title': 'A Fake Package', 'description': 'A cookiecutter te..."
+}

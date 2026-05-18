@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --overwrite-if-exists --accept-hooks=no --accept-hooks=yes --overwrite-if-exists --accept-hooks=no"}

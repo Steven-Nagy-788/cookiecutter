@@ -1,0 +1,16 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "__prompts__": false,
+    "full_name": null,
+    "project_slug": true,
+    "_repo_dir": false,
+    "template": {
+      "project_slug": {
+        "templates": false
+      }
+    }
+  },
+  "case_id": "case_154",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_154.json"
+}

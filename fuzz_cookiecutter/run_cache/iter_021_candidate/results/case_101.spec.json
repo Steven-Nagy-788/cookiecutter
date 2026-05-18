@@ -1,0 +1,26 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_extensions": {
+      "module_name": {
+        "_new_lines": {
+          "project_slug": "{{y}}",
+          "_repo_dir": -90,
+          "_template": false
+        },
+        "_copy_without_render": [
+          17.7,
+          [],
+          false,
+          [],
+          "-",
+          null
+        ]
+      },
+      "ow_y": null
+    },
+    "version": null
+  },
+  "case_id": "case_101",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_021_candidate/cases/case_101.json"
+}

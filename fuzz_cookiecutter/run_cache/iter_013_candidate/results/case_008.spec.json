@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/test-extensions/ --no-input project_short_description=Expanded_fuzzing --keep-project-on-failure --debug",
+  "case_id": "case_008",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_013_candidate/cases/case_8.json"
+}

@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-bad/ --no-input --checkout C --default-config --replay --default-config full_name=Fuzz_User"}

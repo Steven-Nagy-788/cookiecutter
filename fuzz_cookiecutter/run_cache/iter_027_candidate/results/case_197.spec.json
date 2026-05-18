@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/test-extensions/ --no-input project_short_description=Expanded_fuzzing full_name=Fuzz_User",
+  "case_id": "case_197",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_027_candidate/cases/case_197.json"
+}

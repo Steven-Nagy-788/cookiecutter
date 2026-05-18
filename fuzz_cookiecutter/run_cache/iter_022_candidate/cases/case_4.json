@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input full_name=Fuzz_User --skip-if-file-exists --no-input project_short_description=Expanded_fuzzing --skip-if-file-exists"}

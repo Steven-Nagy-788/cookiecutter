@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-tmpl/ --no-input project_short_description=Expanded_fuzzing --config-file tests/test-config/valid-config.yaml --no-input --no-input --replay project_short_description=Expanded_fuzzing --keep-project-on-failure",
+  "case_id": "case_093",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_019_candidate/cases/case_93.json"
+}

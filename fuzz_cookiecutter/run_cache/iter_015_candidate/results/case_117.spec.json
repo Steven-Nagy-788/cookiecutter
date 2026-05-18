@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-bad/ --no-input --replay project_short_description=Expanded_fuzzing repo_name=fuzz-project",
+  "case_id": "case_117",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_015_candidate/cases/case_117.json"
+}

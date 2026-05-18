@@ -1,0 +1,32 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_new_lines": {
+      "templates": " ",
+      "_output_dir": [],
+      "email": 6,
+      "_copy_without_render": {}
+    },
+    "_template": {
+      "project_name": [
+        {
+          "module_name": {
+            "_template": false
+          },
+          "project_name": [],
+          "_copy_without_render": "./{{Do}}45398_",
+          "repo_name": null,
+          "_repo_dir": {
+            "e": false,
+            "project_slug": 656.91393
+          }
+        }
+      ],
+      "_new_lines": {},
+      "version": -852.7
+    },
+    "template": false
+  },
+  "case_id": "case_069",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_005_candidate/cases/case_69.json"
+}

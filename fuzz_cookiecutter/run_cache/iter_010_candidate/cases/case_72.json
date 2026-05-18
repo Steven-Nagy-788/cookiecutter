@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-tmpl/ --no-input --no-input --skip-if-file-exists -v"}

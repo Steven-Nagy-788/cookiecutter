@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo/ --no-input --config-file tests/test-config/valid-config.yaml email=fuzz@example.com --accept-hooks=yes -V --replay",
+  "case_id": "case_168",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_014_candidate/cases/case_168.json"
+}

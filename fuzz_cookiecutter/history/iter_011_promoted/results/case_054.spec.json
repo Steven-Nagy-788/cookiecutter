@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-bad/ --no-input github_username=fuzz_user --config-file tests/test-config/valid-partial-config.yaml --accept-hooks=no repo_name=fuzz-project --debug --checkout Bj",
+  "case_id": "case_054",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_011_candidate/cases/case_54.json"
+}

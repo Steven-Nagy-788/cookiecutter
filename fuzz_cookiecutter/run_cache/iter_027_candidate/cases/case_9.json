@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --skip-if-file-exists email=fuzz@example.com repo_name=fuzz-project github_username=fuzz_user github_username=fuzz_user"}

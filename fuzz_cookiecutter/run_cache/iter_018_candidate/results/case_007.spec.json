@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/test-hooks/ --no-input --config-file tests/test-config/valid-config.yaml --skip-if-file-exists project_name=Fuzz_Project",
+  "case_id": "case_007",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_018_candidate/cases/case_7.json"
+}

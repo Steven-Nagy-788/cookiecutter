@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-pre/ --no-input --keep-project-on-failure --replay --no-input project_short_description=Expanded_fuzzing github_username=fuzz_user -v",
+  "case_id": "case_142",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_016_candidate/cases/case_142.json"
+}

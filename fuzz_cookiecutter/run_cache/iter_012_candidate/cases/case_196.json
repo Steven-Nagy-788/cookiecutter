@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-extensions/ --no-input --accept-hooks=yes --overwrite-if-exists -V --replay repo_name=fuzz-project -h email=fuzz@example.com --config-file tests/test-config/valid-config.yaml --replay"}

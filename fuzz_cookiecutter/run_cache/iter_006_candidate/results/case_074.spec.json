@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input --accept-hooks=no -V --overwrite-if-exists",
+  "case_id": "case_074",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_006_candidate/cases/case_74.json"
+}

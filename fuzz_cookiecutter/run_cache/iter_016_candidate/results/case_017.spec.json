@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-pre/ --no-input --default-config --checkout y",
+  "case_id": "case_017",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_016_candidate/cases/case_17.json"
+}

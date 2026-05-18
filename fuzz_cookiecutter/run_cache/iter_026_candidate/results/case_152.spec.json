@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-bad/ --no-input --accept-hooks=no project_name=Fuzz_Project --accept-hooks=no --config-file tests/test-config/valid-config.yaml project_short_description=Expanded_fuzzing",
+  "case_id": "case_152",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_026_candidate/cases/case_152.json"
+}

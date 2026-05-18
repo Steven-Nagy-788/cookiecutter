@@ -1,0 +1,17 @@
+{
+  "case_id": "case_018",
+  "details": {},
+  "duration_ms": 240,
+  "exception_message": null,
+  "exception_type": "UndefinedVariableInTemplate",
+  "execution_mode": "json",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_005_candidate/cases/case_18.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Unable to render variable 'project_name'. Error message: 'Sej' is undefined. Context: {'cookiecutter': {'project_name': '{{Sej.X}}'}}"
+}

@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input -V -V --accept-hooks=yes full_name=Fuzz_User --replay --skip-if-file-exists --debug -V"}

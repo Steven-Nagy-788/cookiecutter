@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-pre/ --no-input --accept-hooks=no --no-input project_name=Fuzz_Project"}

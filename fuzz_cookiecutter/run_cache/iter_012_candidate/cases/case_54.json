@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --checkout N --skip-if-file-exists email=fuzz@example.com --no-input"}

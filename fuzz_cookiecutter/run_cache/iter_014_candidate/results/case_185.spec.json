@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input github_username=fuzz_user email=fuzz@example.com --replay --accept-hooks=no repo_name=fuzz-project",
+  "case_id": "case_185",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_014_candidate/cases/case_185.json"
+}

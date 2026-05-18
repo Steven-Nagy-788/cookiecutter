@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-hooks/ --no-input --default-config --config-file tests/test-config/valid-partial-config.yaml"}

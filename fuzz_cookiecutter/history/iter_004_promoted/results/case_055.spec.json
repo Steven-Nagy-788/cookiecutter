@@ -1,0 +1,15 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_new_lines": true,
+    "email": {},
+    "_repo_dir": 6,
+    "version": "{{G}}",
+    "_extensions": [
+      null
+    ],
+    "project_name": " 74612Km-"
+  },
+  "case_id": "case_055",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_004_candidate/cases/case_55.json"
+}

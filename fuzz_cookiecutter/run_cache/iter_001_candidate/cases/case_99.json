@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-pre/ --no-input repo_name=fuzz-project -V --overwrite-if-exists"}

@@ -1,0 +1,17 @@
+{
+  "case_id": "case_127",
+  "details": {},
+  "duration_ms": 273,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_003_candidate/cases/case_127.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "DEBUG cookiecutter.config: User config not found. Loading default config.\nDEBUG cookiecutter.main: context_file is tests/fake-repo-dict/cookiecutter.json\nDEBUG cookiecutter.generate: Context generated is OrderedDict({'cookiecutter': OrderedDict({'project_slug': 'fake-project-dict', 'file_types': OrderedDict({'png': OrderedDict({'name': 'Portable Network Graphic', 'library': 'libpng', 'apps': ['GIMP']}), 'bmp': OrderedDict({'name': 'Bitmap', 'library': 'libbmp', 'apps': ['Paint', 'GIMP']})})})})\nDEBUG cookiecutter.main: context is OrderedDict({'cookiecutter': OrderedDict({'project_slug': 'fake-project-dict', 'file_types': {'png': {'name': 'Portable Network Graphic', 'library': 'libpng', 'apps': ['GIMP']}, 'bmp': {'name': 'Bitmap', 'library': 'libbmp', 'apps': ['Paint', 'GIMP']}}}), '_coo..."
+}

@@ -1,0 +1,10 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "repo_name": {
+      "_new_lines": "{{La.n}}/--"
+    }
+  },
+  "case_id": "case_008",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_018_candidate/cases/case_8.json"
+}

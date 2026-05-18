@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-tmpl/ --no-input github_username=fuzz_user full_name=Fuzz_User --config-file tests/test-config/valid-partial-config.yaml repo_name=fuzz-project --keep-project-on-failure --skip-if-file-exists",
+  "case_id": "case_155",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_024_candidate/cases/case_155.json"
+}

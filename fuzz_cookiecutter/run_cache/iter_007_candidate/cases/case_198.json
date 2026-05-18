@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo/ --no-input -v --accept-hooks=no --config-file tests/test-config/valid-partial-config.yaml"}

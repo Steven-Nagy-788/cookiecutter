@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-bad/ --no-input --accept-hooks=no project_name=Fuzz_Project --accept-hooks=no --config-file tests/test-config/valid-config.yaml project_short_description=Expanded_fuzzing"}

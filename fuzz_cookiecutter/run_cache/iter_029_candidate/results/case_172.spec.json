@@ -1,0 +1,11 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "description": -7227,
+    "license": {
+      "license": -220.48
+    }
+  },
+  "case_id": "case_172",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_029_candidate/cases/case_172.json"
+}

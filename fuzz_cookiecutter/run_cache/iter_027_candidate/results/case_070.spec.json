@@ -1,0 +1,17 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_template": "{{xMNn.SC5}}",
+    "repo_name": {},
+    "full_name": {
+      "z": 56.9,
+      "_copy_without_render": -2,
+      "_output_dir": null
+    },
+    "templates": -8,
+    "_output_dir": true,
+    "__prompts__": false
+  },
+  "case_id": "case_070",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_027_candidate/cases/case_70.json"
+}

@@ -1,0 +1,14 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "email": null,
+    "_repo_dir": "/. HE._w",
+    "project_name": "/6_{{o.j}}",
+    "templates": {
+      "_output_dir": {}
+    },
+    "_output_dir": false
+  },
+  "case_id": "case_071",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_023_candidate/cases/case_71.json"
+}

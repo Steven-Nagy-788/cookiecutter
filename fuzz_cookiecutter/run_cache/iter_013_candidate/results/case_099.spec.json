@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo/ --no-input --accept-hooks=yes email=fuzz@example.com --keep-project-on-failure --overwrite-if-exists",
+  "case_id": "case_099",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_013_candidate/cases/case_99.json"
+}

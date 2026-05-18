@@ -1,0 +1,17 @@
+{
+  "case_id": "case_046",
+  "details": {},
+  "duration_ms": 251,
+  "exception_message": null,
+  "exception_type": "UndefinedVariableInTemplate",
+  "execution_mode": "json",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_46.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Unable to render variable 'project_name'. Error message: 'f' is undefined. Context: {'cookiecutter': {'pp': 1.07, 'project_name': [6.3, ' -.{{f.O}}_/', False, None]}}"
+}

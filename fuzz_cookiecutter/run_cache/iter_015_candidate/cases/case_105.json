@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-hooks/ --no-input --skip-if-file-exists github_username=fuzz_user"}

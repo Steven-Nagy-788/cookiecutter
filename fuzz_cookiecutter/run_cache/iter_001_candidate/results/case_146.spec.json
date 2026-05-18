@@ -1,0 +1,10 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_jinja2_env_vars": -77.975,
+    "_repo_dir": [],
+    "repo_name": {}
+  },
+  "case_id": "case_146",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/cases/case_146.json"
+}

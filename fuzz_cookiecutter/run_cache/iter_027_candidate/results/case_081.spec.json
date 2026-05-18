@@ -1,0 +1,18 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "template": 9.2,
+    "G": {
+      "_output_dir": null
+    },
+    "_requirements": null,
+    "_template": {
+      "email": -34.911,
+      "__prompts__": "{{fJ7}}-*",
+      "templates": {}
+    },
+    "_copy_without_render": {}
+  },
+  "case_id": "case_081",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_027_candidate/cases/case_81.json"
+}

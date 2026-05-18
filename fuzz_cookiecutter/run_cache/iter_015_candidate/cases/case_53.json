@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input repo_name=fuzz-project --keep-project-on-failure --replay --config-file tests/test-config/valid-partial-config.yaml repo_name=fuzz-project"}

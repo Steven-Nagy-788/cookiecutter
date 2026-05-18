@@ -1,0 +1,9 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "full_name": "{{AiSK}}",
+    "module_name": {}
+  },
+  "case_id": "case_099",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_028_candidate/cases/case_99.json"
+}

@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --checkout n --config-file tests/test-config/valid-config.yaml --accept-hooks=yes"}

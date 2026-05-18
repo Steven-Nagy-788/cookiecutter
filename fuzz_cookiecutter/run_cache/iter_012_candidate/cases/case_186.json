@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --overwrite-if-exists --accept-hooks=yes github_username=fuzz_user -V repo_name=fuzz-project --config-file tests/test-config/valid-partial-config.yaml"}

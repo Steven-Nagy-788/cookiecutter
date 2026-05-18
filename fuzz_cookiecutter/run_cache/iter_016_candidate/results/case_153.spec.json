@@ -1,0 +1,19 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "templates": false,
+    "email": "-",
+    "_output_dir": [],
+    "_template": -9115042,
+    "template": {
+      "_output_dir": -4171.7944,
+      "repo_name": false
+    },
+    "_new_lines": [
+      {},
+      1.6
+    ]
+  },
+  "case_id": "case_153",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_016_candidate/cases/case_153.json"
+}

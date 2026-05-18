@@ -1,0 +1,17 @@
+{
+  "case_id": "case_155",
+  "details": {},
+  "duration_ms": 258,
+  "exception_message": null,
+  "exception_type": "UndefinedVariableInTemplate",
+  "execution_mode": "json",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_005_candidate/cases/case_155.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Unable to render variable 'project_name'. Error message: 'q' is undefined. Context: {'cookiecutter': {'_copy_without_render': [], 'version': -348.0, '_repo_dir': ['{{Cd.N}}', [], '//{{Lw}}//.*', []], 'project_name': '{{q}}', 'email': '{{rV}}', '_requirements': [], 'templates': []}}"
+}

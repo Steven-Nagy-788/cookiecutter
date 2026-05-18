@@ -1,0 +1,17 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_extensions": "mqn_",
+    "email": {
+      "_repo_dir": true,
+      "templates": [
+        {}
+      ]
+    },
+    "_copy_without_render": {
+      "version": "UN"
+    }
+  },
+  "case_id": "case_122",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_027_candidate/cases/case_122.json"
+}

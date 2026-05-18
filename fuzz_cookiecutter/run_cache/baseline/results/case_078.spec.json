@@ -1,0 +1,9 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "_template": [],
+    "license": 6368
+  },
+  "case_id": "case_078",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_78.json"
+}

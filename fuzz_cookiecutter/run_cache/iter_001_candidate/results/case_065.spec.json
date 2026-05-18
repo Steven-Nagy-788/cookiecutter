@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input --config-file tests/test-config/valid-partial-config.yaml --keep-project-on-failure --no-input --skip-if-file-exists --keep-project-on-failure project_short_description=Expanded_fuzzing --no-input",
+  "case_id": "case_065",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_001_candidate/cases/case_65.json"
+}

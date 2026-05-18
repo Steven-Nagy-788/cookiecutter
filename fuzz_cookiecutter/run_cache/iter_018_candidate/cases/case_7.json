@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/test-hooks/ --no-input --config-file tests/test-config/valid-config.yaml --skip-if-file-exists project_name=Fuzz_Project"}

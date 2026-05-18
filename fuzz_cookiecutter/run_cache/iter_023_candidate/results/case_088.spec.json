@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-nested-templates/ --no-input --replay email=fuzz@example.com --skip-if-file-exists --overwrite-if-exists --config-file tests/test-config/valid-partial-config.yaml --accept-hooks=no",
+  "case_id": "case_088",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_023_candidate/cases/case_88.json"
+}

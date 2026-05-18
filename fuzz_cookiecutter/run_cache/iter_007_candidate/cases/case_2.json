@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-dict/ --no-input -h -h full_name=Fuzz_User project_short_description=Expanded_fuzzing email=fuzz@example.com github_username=fuzz_user email=fuzz@example.com"}

@@ -1,0 +1,9 @@
+{
+  "rationale": "Heuristic fallback injecting new random options to increase coverage.",
+  "updates": [
+    {
+      "replacement": "SAFE_NAME\n    : 'safe_default' | 'baseline_project' | 'test_project' | 'test_'+ IDENT | '{{cookiecutter.project_slug}}' | 'malicious_'+ IDENT\n    ;",
+      "rule": "SAFE_NAME"
+    }
+  ]
+}

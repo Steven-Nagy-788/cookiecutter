@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-pre/ --no-input --overwrite-if-exists --keep-project-on-failure email=fuzz@example.com"}

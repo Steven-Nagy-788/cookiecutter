@@ -1,0 +1,17 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "description": null,
+    "version": "{{K}} *e ",
+    "full_name": null,
+    "_requirements": [
+      false,
+      [
+        []
+      ],
+      ".///"
+    ]
+  },
+  "case_id": "case_107",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_107.json"
+}

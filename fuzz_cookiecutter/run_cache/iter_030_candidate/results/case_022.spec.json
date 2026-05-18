@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "tests/fake-repo-bad/ --no-input email=fuzz@example.com github_username=fuzz_user --checkout dv -V github_username=fuzz_user",
+  "case_id": "case_022",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_030_candidate/cases/case_22.json"
+}

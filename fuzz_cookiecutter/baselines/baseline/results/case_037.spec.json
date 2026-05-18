@@ -1,0 +1,10 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "repo_name": null,
+    "_copy_without_render": [],
+    "project_name": null
+  },
+  "case_id": "case_037",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_37.json"
+}

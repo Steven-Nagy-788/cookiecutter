@@ -1,0 +1,17 @@
+{
+  "case_id": "case_175",
+  "details": {},
+  "duration_ms": 228,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 1,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_019_candidate/cases/case_175.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "DEBUG cookiecutter.config: User config not found. Loading default config.\nDEBUG cookiecutter.hooks: hooks_dir is /media/steven/MaD/projects/cookiecutter/tests/fake-repo-pre/hooks\nDEBUG cookiecutter.hooks: No hooks/dir in template_dir\nDEBUG cookiecutter.main: context_file is tests/fake-repo-pre/cookiecutter.json\nDEBUG cookiecutter.generate: Context generated is OrderedDict({'cookiecutter': OrderedDict({'full_name': 'Audrey M. Roy Greenfeld', 'email': 'audreyroygreenfeld@example.com', 'github_username': 'audreyfeldroy', 'project_name': 'Fake Project', 'repo_name': 'fake-project', 'project_short_description': 'This is a fake project.', 'release_date': '2013-07-28', 'year': '2013', 'version': '0.1'})})\nDEBUG cookiecutter.main: context is OrderedDict({'cookiecutter': OrderedDict({'full_name'..."
+}

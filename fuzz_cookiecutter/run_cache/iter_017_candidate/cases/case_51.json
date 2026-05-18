@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-repo-tmpl/ --no-input --config-file tests/test-config/valid-partial-config.yaml --config-file tests/test-config/valid-partial-config.yaml --replay -v"}

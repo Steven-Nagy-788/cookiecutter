@@ -1,0 +1,17 @@
+{
+  "case_id": "case_037",
+  "details": {},
+  "duration_ms": 3,
+  "exception_message": null,
+  "exception_type": "SystemExit",
+  "execution_mode": "cli",
+  "exit_code": 2,
+  "file_count_created": 0,
+  "generated_project_path": null,
+  "hook_phase_reached": null,
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_005_candidate/cases/case_37.json",
+  "materialization_status": "OK",
+  "status": "WARNING",
+  "stderr_excerpt": "",
+  "stdout_excerpt": "Usage: main [OPTIONS] [TEMPLATE] [EXTRA_CONTEXT]...\nTry 'main --help' for help.\n\nError: No such option '--debug'. Did you mean '--debug-file'?\n"
+}

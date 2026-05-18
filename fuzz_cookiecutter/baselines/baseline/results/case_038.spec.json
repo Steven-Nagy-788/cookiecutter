@@ -1,0 +1,11 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "module_name": [
+      null
+    ],
+    "template": -8931.11167
+  },
+  "case_id": "case_038",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_38.json"
+}

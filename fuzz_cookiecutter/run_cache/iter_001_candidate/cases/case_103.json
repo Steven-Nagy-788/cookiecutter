@@ -1,0 +1,1 @@
+{"mode":"cli","command":"tests/fake-nested-templates/ --no-input --debug --accept-hooks=no full_name=Fuzz_User --overwrite-if-exists project_short_description=Expanded_fuzzing --config-file tests/test-config/valid-config.yaml email=fuzz@example.com"}

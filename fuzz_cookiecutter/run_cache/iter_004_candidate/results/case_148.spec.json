@@ -1,0 +1,12 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "repo_name": -5.12,
+    "_new_lines": [
+      "{{CK.bY}}"
+    ],
+    "module_name": {}
+  },
+  "case_id": "case_148",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_004_candidate/cases/case_148.json"
+}

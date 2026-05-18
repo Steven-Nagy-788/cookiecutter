@@ -1,0 +1,6 @@
+{
+  "mode": "cli",
+  "command": "-l --config-file tests/test-config/valid-config.yaml",
+  "case_id": "case_044",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/iter_006_candidate/cases/case_44.json"
+}

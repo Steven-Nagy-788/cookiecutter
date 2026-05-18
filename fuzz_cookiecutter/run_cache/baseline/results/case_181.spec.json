@@ -1,0 +1,10 @@
+{
+  "mode": "json",
+  "json_payload": {
+    "templates": [],
+    "_requirements": {},
+    "full_name": "{{IPqJ}}"
+  },
+  "case_id": "case_181",
+  "manifest_path": "/media/steven/MaD/projects/cookiecutter/fuzz_cookiecutter/run_cache/baseline/cases/case_181.json"
+}
